@@ -1,0 +1,312 @@
+            body {
+                margin: 0;
+        }
+            .layout  {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        aside {
+            width: 300px;
+            background-color: #880505; 
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        
+        .text {
+            color: rgb(255, 255, 255);
+            text-align: right;
+            position: relative;
+            right: auto;
+            margin: 20px;
+
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-left: -20px;
+
+
+        }
+        .menu {
+            display: flex; 
+            flex-direction: column;
+            gap: 15px;
+            margin: 40px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .menu a.menu-link {
+            display: block;       
+            text-decoration: none;
+            color: inherit;
+        }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 200px;
+            height: 50px;
+
+            margin: 10px auto;
+
+            background-color: #880505;
+            color: white;
+            text-decoration: none;
+
+            border-radius: 10px;
+            border: 0.5px solid #000;
+
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            font-size: 18px;
+
+            transition: 0.3s ease;
+        }
+
+        
+        .menu-item:hover {
+            background-color: #a31515;
+        }
+         .sidebar-img{
+        display: flex;
+        align-items: center;   
+        gap: 50px;             
+        padding: 20px;
+        }
+
+        .profile-img{
+            width:70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+
+        /* camera icon */
+        .material-symbols-outlined{
+            font-size: 18px;
+            color: #2c6f2c;
+        }
+
+        /* hide file input */
+        #file-path{
+            display: none;
+        }
+
+        .sidebar-header p{
+            margin: 3px 0;
+            font-size: 20px;
+            color: white;
+        }
+        .camera-icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 45px;
+
+        width: 35px;
+        height: 35px;
+        background: #f6f9ff;
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        opacity: 0;
+        transition: 0.3s ease;
+    }
+
+        /* Show when hovering */
+        .profile-container:hover .camera-icon{
+            opacity: 1;                 /* VISIBLE */
+        }
+        .profile-container {
+            position: relative;
+            width: 70px;
+            height: 70px;
+        }
+        .footer-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .name {
+            color: white;
+            font-weight: bold;
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .email {
+            color: #f1cfcf;
+            margin: 3px 0 0 0;
+            font-size: 20px;
+        }
+        .email-img {
+            width: 50px;        
+            height: 50px;       
+            border-radius: 50%; 
+            object-fit: cover;  
+        }
+        .title {
+        
+        font-weight: bold;
+        color: #7a0c0c;
+        margin-bottom: 5px;
+        margin-left: 10px;
+    }
+
+        /* MAIN CONTENT */
+    .content {
+        flex: 1;
+        padding: 40px;
+        
+    }
+
+    .title {
+        margin-top: -5px;
+        font-size: 28px;
+        color: #6d0f0f;
+    }
+
+    .subtitle {
+        
+        color: #777;
+        margin-bottom: 70px;
+        margin-top: 10px;
+        margin-left: 10px;
+
+    }
+
+    /* SIDE BUTTONS */
+    .settings-tabs {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 25px;
+        flex-direction: column;
+        margin-top: 85px;
+        
+    }
+
+    .tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 200px;
+    height: 50px;
+
+    border-radius: 25px;
+    background: #eee;
+
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+
+    transition: 0.3s ease;
+    }
+
+
+   
+    .tab:hover {
+        background: #8a1a1a;
+        color: white;
+    }
+
+    
+    .security-box {
+        background: white;
+        border: 2px solid #6d0f0f;
+        border-radius: 15px;
+        padding: 20px;
+        max-width: 600px;
+        margin-top: -205px;
+        margin-left: 250px;
+        
+    }
+     
+    .security-box1 {
+        background: white;
+        border: 2px solid #6d0f0f;
+        border-radius: 15px;
+        padding: 20px;
+        max-width: 600px;
+        max-height: 50px;
+        margin-top: 30px;
+        margin-left: 250px;
+        
+    }
+    .profile-form {
+        flex: 1;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 18px;
+    }
+    .form-group input {
+        padding: 10px;
+        border: 1px solid #6d0f0f;
+        border-radius: 6px;
+        outline: none;
+    }
+
+    .form-group input:disabled {
+        background: #f0f0f0;
+    }
+    .security-title {
+        color: #6d0f0f;
+        margin-bottom: 25px;
+        margin-top: -10px;
+    }
+    .subtitle-cp {
+        display: flex;
+        color: #777;
+        margin-bottom: 30px;
+        margin-top: -20px;
+        margin-left: 2px;
+
+    }
+    .TFA-title {
+        color: #6d0f0f;
+        margin-bottom: 25px;
+        margin-top: 1px;
+    }
+    .subtitle-tfa {
+      
+        color: #777;
+        margin-bottom: 60px;
+        margin-top: -20px;
+        margin-left: 4px;
+
+    }
+    .update-btn {
+        display: flex;
+        padding: 10px 25px;
+        background: #6d0f0f;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-left: 443px;
+    }
+    .Enablebtn {
+        display: flex;
+        margin-top: -65px;
+        margin-left: 775px;
+        padding: 10px 25px;
+        background: #6d0f0f;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
