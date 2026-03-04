@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <link rel="stylesheet" href="../css/keymanagement.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=photo_camera" />
+        <title>ADMIN IT</title>
+    </head>
+    <body>
+        <div class ="layout">
+            <aside>
+                <section class="sidebar-img">  
+                    <div class="profile-container">
+                        <img src="logo.png" id="profile-img" class="profile-img">
+                        <label for="file-path" class="camera-icon">
+                            <span class="material-symbols-outlined">photo_camera</span>
+                        </label>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="file-path">
+                    </div>
+                    <div class="sidebar-header">
+                            <p>Admin IT</p>
+                            <p>Dashboard</p>
+                        </div>
+               </section>
+                    <hr>
+                <div class = "menu">
+                        <a href="Dashboard.html" class="menu-item">Dashboard</a>
+                        <a href="BarangayActivation.html" class="menu-item">Barangay Activation</a>
+                        <a href="keymanagement.html" class="menu-item">Key Management</a>
+                        <a href="settings.html" class="menu-item">Settings</a>
+                </div>
+                <footer>
+                    <hr>
+                        <div class="footer-profile">
+                            <img src="logo.png" class="email-img">
+
+                            <div>
+                                <p class="name">Admin IT</p>
+                                <p class="email">admin@gmail.com</p>
+                            </div>
+                        </div>
+                </footer>
+            </aside>
+ <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <h1>Activation Key Management</h1>
+        <p class="subtitle">Monitor and track COTS system installations across barangays</p>
+
+    
+        <div class="cards">
+            <div class="card">
+                <p class="card-label">Total Keys</p>
+                <h2 class="card-value">3</h2>
+            </div>
+
+            <div class="card">
+                <p class="card-label">Used</p>
+                <h2 class="card-value">3</h2>
+            </div>
+
+            <div class="card">
+                <p class="card-label">Unused</p>
+                <h2 class="card-value">0</h2>
+            </div>
+        </div>
+
+        <div class="toolbar">
+            <input type="text" placeholder="Search Barangay name">
+            <button class="btn">+ Generate new key</button>
+        </div>
+
+     
+        <table class="barangay-table">
+        <thead>
+            <tr>
+                <th>Barangay name</th>
+                <th>Activation Key</th>
+                <th>Status</th>
+                <th>Date Activated</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr class="table-row">
+                <td>Pembo</td>
+                <td>KEY-A9F21D</td>
+                <td><span class="status active">Activated</span></td>
+                <td>2025-10-05</td>
+            </tr>
+
+            <tr class="table-row">
+                <td>Rizal</td>
+                <td>KEY-B8F21D</td>
+                <td><span class="status unused">Unused</span></td>
+                <td>2025-10-05</td>
+            </tr>
+
+            <tr class="table-row">
+                <td>Comembo</td>
+                <td>KEY-RF621D</td>
+                <td><span class="status active">Activated</span></td>
+                <td>2025-10-05</td>
+            </tr>
+        </tbody>
+    </table>
+    </main>
+        </div>
+        <script src="../js/keymanagement.js"></script>
+        <script src="../js/uploadimage.js"></script>
+    </body>
+</html>
