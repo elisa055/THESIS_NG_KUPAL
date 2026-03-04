@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <link rel="stylesheet" href="../css/dashboard.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=photo_camera" />
+        <title>ADMIN IT</title>
+    </head>
+    <body>
+        <div class ="layout">
+            <aside>
+                <section class="sidebar-img">  
+                    <div class="profile-container">
+                        <img src="logo.png" id="profile-img" class="profile-img">
+                        <label for="file-path" class="camera-icon">
+                            <span class="material-symbols-outlined">photo_camera</span>
+                        </label>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="file-path">
+                    </div>
+                    <div class="sidebar-header">
+                            <p>Admin IT</p>
+                            <p>Dashboard</p>
+                        </div>
+               </section>
+                    <hr>
+                <div class = "menu">
+                        <a href="Dashboard.html" class="menu-item">Dashboard</a>
+                        <a href="BarangayActivation.html" class="menu-item">Barangay Activation</a>
+                        <a href="keymanagement.html" class="menu-item">Key Management</a>
+                        <a href="settings.html" class="menu-item">Settings</a>
+                </div>
+                <footer>
+                    <hr>
+                        <div class="footer-profile">
+                            <img src="logo.png" class="email-img">
+
+                            <div>
+                                <p class="name">Admin IT</p>
+                                <p class="email">admin@gmail.com</p>
+                            </div>
+                        </div>
+                </footer>
+            </aside>
+            <main class = "content">
+                <div class = "stats">
+                    <div class="card">
+                        <p class="card-title">Total Barangays</p>
+                            <h2 class="card-number">8</h2>
+                        <p class="card-subtitle">Registered System</p>
+                    </div>
+                    <div class="card">
+                        <p class="card-title">Activated</p>
+                            <h2 class="card-number">8</h2>
+                        <p class="card-subtitle">System Online</p>
+                    </div>
+                    <div class="card">
+                        <p class="card-title">Pending</p>
+                            <h2 class="card-number">8</h2>
+                        <p class="card-subtitle">Awaiting Activation</p>
+                    </div>
+                    <div class="card">
+                        <p class="card-title">Key Available</p>
+                            <h2 class="card-number">8</h2>
+                        <p class="card-subtitle">5 key Used</p>
+                    </div>
+                </div>
+
+                <div class="barangay-box">
+                        <div class="box-header">
+                            <a href="BarangayActivation.html">View all →</a>
+                        </div>
+
+                        <table class="barangay-table">
+                            <tbody>
+                                <tr>
+                                    <td>Pembo</td>
+                                    <td>KEY-A9F21D</td>
+                                    <td><span class="status unused">Unused</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Rizal</td>
+                                    <td>KEY-B8F21D</td>
+                                    <td><span class="status unused">Unused</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Comembo</td>
+                                    <td>KEY-RF621D</td>
+                                    <td><span class="status active">Activated</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script src="../js/dashboard.js"></script>
+        <script src="../js/uploadimage.js"></script>
+    </body>
+</html>
+
