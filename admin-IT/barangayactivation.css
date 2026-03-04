@@ -1,0 +1,230 @@
+                 body {
+                margin: 0;
+        }
+            .layout  {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        aside {
+            width: 300px;
+            background-color: #880505; 
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        /* Dashboard HTML */
+        .text {
+            color: rgb(255, 255, 255);
+            text-align: right;
+            position: relative;
+            right: auto;
+            margin: 20px;
+
+        }
+        .menu {
+            display: flex; 
+            flex-direction: column;
+            gap: 15px;
+            margin: 40px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .menu a.menu-link {
+            display: block;     
+            text-decoration: none;
+            color: inherit;
+        }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 200px;
+            height: 50px;
+
+            margin: 10px auto;
+
+            background-color: #880505;
+            color: white;
+            text-decoration: none;
+
+            border-radius: 10px;
+            border: 0.5px solid #000;
+
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            font-size: 18px;
+
+            transition: 0.3s ease;
+        }
+
+        
+        .menu-item:hover {
+            background-color: #a31515;
+        }
+ /* ito ay para sa BARANGAY ACTIVATION */
+        .page-title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #7a0c0c;
+        margin-bottom: 5px;
+    }
+
+        .page-subtitle {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .search {
+            width: 350px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+
+        
+        .table-box {
+            border: 2px solid #000000;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 90%;
+        }
+
+      
+        .table-header {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr 1fr;
+            padding: 15px;
+            font-weight: bold;
+            background: #fff;
+            border-bottom: 2px solid #000000;
+        }
+
+        
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr 1fr;
+            padding: 15px;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .barangay-name {
+            font-weight: bold;
+            color: #000000;
+        }
+
+        /* STATUS  to */
+        .status {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            width: fit-content;
+        }
+
+        .status.active {
+            background-color: gray;
+            color: #8a9e88;
+        }
+
+        .status.unused {
+            background-color: gray;
+            color: #8a6d00;
+        }
+        .content {
+            flex: 1;
+            padding-top: 10px;  
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+         .sidebar-img{
+        display: flex;
+        align-items: center;   
+        gap: 50px;             
+        padding: 20px;
+        }
+
+        .profile-img{
+            width:70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+
+       
+        .material-symbols-outlined{
+            font-size: 18px;
+            color: #2c6f2c;
+        }
+
+        
+        #file-path{
+            display: none;
+        }
+
+        .sidebar-header p{
+            margin: 3px 0;
+            font-size: 20px;
+            color: white;
+        }
+        .camera-icon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 45px;
+
+        width: 35px;
+        height: 35px;
+        background: #f6f9ff;
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        opacity: 0;
+        transition: 0.3s ease;
+    }
+
+        
+        .profile-container:hover .camera-icon{
+            opacity: 1;                 
+        }
+        .profile-container {
+            position: relative;
+            width: 70px;
+            height: 70px;
+        }
+        .footer-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .name {
+            color: white;
+            font-weight: bold;
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .email {
+            color: #f1cfcf;
+            margin: 3px 0 0 0;
+            font-size: 20px;
+        }
+        .email-img {
+            width: 50px;       
+            height: 50px;      
+            border-radius: 50%; 
+            object-fit: cover;  
+        }
+      
+
+
+
