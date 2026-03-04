@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <link rel="stylesheet" href="../css/notification.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=photo_camera" />
+        <title>ADMIN IT</title>
+    </head>
+    <body>
+        <div class ="layout">
+            <aside>
+                <section class="sidebar-img">  
+                    <div class="profile-container">
+                        <img src="logo.png" id="profile-img" class="profile-img">
+                        <label for="file-path" class="camera-icon">
+                            <span class="material-symbols-outlined">photo_camera</span>
+                        </label>
+                        <input type="file" accept="image/jpeg, image/png, image/jpg" id="file-path">
+                    </div>
+                    <div class="sidebar-header">
+                            <p>Admin IT</p>
+                            <p>Dashboard</p>
+                        </div>
+               </section>
+                    <hr>
+                <div class = "menu">
+                        <a href="Dashboard.html" class="menu-item">Dashboard</a>
+                        <a href="BarangayActivation.html" class="menu-item">Barangay Activation</a>
+                        <a href="keymanagement.html" class="menu-item">Key Management</a>
+                        <a href="settings.html" class="menu-item">Settings</a>
+                </div>
+                <footer>
+                    <hr>
+                        <div class="footer-profile">
+                            <img src="logo.png" class="email-img">
+
+                            <div>
+                                <p class="name">Admin IT</p>
+                                <p class="email">admin@gmail.com</p>
+                            </div>
+                        </div>
+                </footer>
+            </aside>
+            <main class="content">
+
+                <h1 class="title">Settings</h1>
+                <p class="subtitle">Manage your account Settings and preference</p>
+
+                
+                <div class="settings-tabs">
+                    <a href="settings.html" class="tab">Profile</a>
+                    <a href="security.html" class="tab">Security</a>
+                    <a href="notification.html" class="tab">Notification</a>
+                </div>
+
+                
+                <div class="settings-profile">
+                    <h2 class="notification-title">Notification Preferences</h2>
+                    <p class="subtitle-notif">Configure how you receive notification</p>
+                  
+                <div class="notification-card">
+                    <div class="text-content">
+                        <h4>New Barangay Activation</h4>
+                        <p>Get notified when a barangay activates the COTS system</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="notification-card">
+                    <div class="text-content">
+                        <h4>Key Usage Alerts</h4>
+                        <p>Receive alerts when activation keys are used</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="notification-card">
+                    <div class="text-content">
+                        <h4>System Updates</h4>
+                        <p>Notifications about system maintenance and updates</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                </div>
+
+            </main>        
+         </div>
+        <script src="../js/notification.js"></script>
+        <script src="../js/uploadimage.js"></script>
+    </body>
+</html>
