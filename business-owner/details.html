@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Owner Portal</title>
+    <link rel="stylesheet" href="details.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-left">
+            <img src="images/logo.png" alt="Barangay Pembo Logo" class="logo">
+            <div>
+                <span id="name"></span>
+                <p>Barangay Pembo</p>
+                <p>Business Owner Portal</p>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <p>Owner Name</p>
+            <span id="gmail"></span>
+            <p>Owner@gmail.com</p>
+            <a href="#" class="logout">Logout</a>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <div class="back-container">
+         <a href="dashboard.html" class="back">← Back</a>
+        </div>
+
+        <div class="status-row">
+            <div class="card">
+                <div class="card-title">Status</div>
+                <div class="placeholder"></div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Payment Status</div>
+                <div class="placeholder"></div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Renewal Date</div>
+                <div class="renewal">00/00/00</div>
+            </div>
+        </div>
+
+        <div class="details-box">
+
+            <!-- UPDATED BUTTON -->
+            <button class="update-btn" id="openModalBtn">
+                Request Update Details
+            </button>
+
+            <div class="grid">
+                <div>Business name</div>
+                <div>Zone</div>
+                <div>Permit ID</div>
+                <div>Owner Email</div>
+                <div>Business Type</div>
+                <div>Owner Id</div>
+                <div>Address</div>
+                <div>Latitude</div>
+                <div>Registration Date</div>
+                <div>Longitude</div>
+            </div>
+
+            <hr>
+
+            <div class="financial-title">Financial Information</div>
+
+            <div class="grid">
+                <div>Amount Capitalization</div>
+                <div>Prior Income</div>
+                <div>Years Operation</div>
+                <div>Amount Paid</div>
+            </div>
+
+        </div>
+
+        <button class="download-btn">
+            Download Clearance Form (PDF)
+        </button>
+
+    </main>
+</div>
+
+<!-- ✅ MODAL -->
+<div class="modal" id="requestModal">
+    <div class="modal-content">
+        <textarea placeholder="Type request..."></textarea>
+
+        <div class="modal-buttons">
+            <button class="cancel-btn" id="closeModalBtn">Cancel</button>
+            <button class="send-btn">Send Request</button>
+        </div>
+    </div>
+</div>
+
+<!-- JS LINK -->
+<script src="modal.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Business - Barangay Pembo</title>
+    <link rel="stylesheet" href="Register.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <img src="images/logo.png" alt="Barangay Pembo Logo" class="logo">
+                <div>
+                    <h1>Barangay Pembo</h1>
+                    <p>Business Owner Portal</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <h2>Owner name</h2>
+                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7d320a13180f3d1a101c1411531e1210">[email&#160;protected]</a></p>
+                <a href="#" class="logout">Logout</a>
+            </div>
+        </header>
+
+        <!-- Main Form -->
+        <main class="main-content">
+            <div class="form-container">
+                <h2>Register Business</h2>
+                <p class="subtitle">Fill up business details and payment information</p>
+
+                <form>
+                    <!-- Business Information Section -->
+                    <fieldset>
+                        <legend>Business Information</legend>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="business-name">Business Name</label>
+                                <input type="text" id="business-name" name="business-name" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="owner-name">Owner Name</label>
+                                <input type="text" id="owner-name" name="owner-name" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="business-type">Business Type</label>
+                                <select id="business-type" name="business-type">
+                                    <option>Select Business Type</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="registration-type">Registration Type</label>
+                                <div class="radio-group">
+                                    <label class="radio-label">
+                                        <input type="radio" name="registration-type" value="new"> New
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="registration-type" value="renewal"> Renewal
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="registration-type" value="owner"> Owner
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="registration-type" value="lease"> Lease
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" placeholder="">
+                        </div>
+                    </fieldset>
+
+                    <!-- Location Section -->
+                    <div class="form-group full-width">
+                        <button type="button" class="pin-location-btn">Pin Your Location</button>
+                    </div>
+
+                    <!-- Contact Number -->
+                    <div class="form-group full-width">
+                        <label for="contact-number">Contact Number</label>
+                        <input type="tel" id="contact-number" name="contact-number" placeholder="">
+                    </div>
+
+                    <!-- Schedule Section -->
+                    <div class="form-group full-width">
+                        <label for="schedule">Pick a schedule</label>
+                        <select id="schedule" name="schedule">
+                            <option>Select Schedule</option>
+                        </select>
+                    </div>
+
+                    <!-- Financial Information Section -->
+                    <fieldset>
+                        <legend>Financial Information</legend>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="capitalization">Capitalization (Income)</label>
+                                <input type="text" id="capitalization" name="capitalization" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="capitalization-2">Capitalization (Income)</label>
+                                <input type="text" id="capitalization-2" name="capitalization-2" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="years-operation">Years in Operation</label>
+                                <input type="text" id="years-operation" name="years-operation" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="amount-paid">Amount Paid (Prior Year)</label>
+                                <input type="text" id="amount-paid" name="amount-paid" placeholder="">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Consent Section -->
+                    <div class="consent-section">
+                        <div class="consent-group">
+                            <label class="checkbox-label">
+                                <input type="radio" name="consent" value="accept">
+                                <span class="info-icon">ⓘ</span>
+                                By selecting "Accept", you hereby give your consent to the collection, use, and storage of your personal information for the purpose of business database registration and monitoring within the Barangay Pembo system. Processing of your personal information shall be in accordance with the Data Privacy Act of 2012.</span>
+                            </label>
+                        </div>
+
+                        <div class="consent-group">
+                            <label class="checkbox-label">
+                                <input type="radio" name="consent" value="decline">
+                                <span class="info-icon">ⓘ</span>
+                                By selecting "Reject", you understand that you are declining to share your personal information, and therefore cannot proceed with the registration process.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-register">Register</button>
+                        <button type="button" class="btn btn-cancel">Cancel</button>
+  

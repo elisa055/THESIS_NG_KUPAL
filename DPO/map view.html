@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Business Location Map</title>
+<link rel="stylesheet" href="map view.css">
+</head>
+
+<body>
+
+
+<div class="navbar">
+  <div class="navleft">
+    <div class="logo">logo</div>
+    <div>
+      <div class="title">Barangay Pembo</div>
+      <div class="subtitle">Data Privacy Officer</div>
+    </div>
+  </div>
+
+  <div class="navcenter">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="map view.html">Map View</a>
+    <a href="report logs.html">Report Logs</a>
+  </div>
+
+  <div class="navright">
+    <div>
+      <div class="admin-name">Admin</div>
+      <div class="admin-email">Admin@gmail.com</div>
+    </div>
+    <a class="logout" href="#">Logout</a>
+  </div>
+</div>
+
+
+<div class="page">
+
+  <h2>Barangay Pembo Business Location Map</h2>
+  <div class="subtitle2">View all Registered Map</div>
+
+  <div class="layout">
+
+    
+    <div class="map-card">
+      <div class="map-area" id="mapArea">
+        
+      </div>
+
+      <div class="map-footer">
+        Scroll to zoom · Click pins to select · Showing 3 businesses
+      </div>
+    </div>
+
+    
+    <div class="side-panel">
+
+      <div class="search-box">
+        <input type="text" placeholder="Search Business Name">
+      </div>
+
+      <div class="legend">
+        <h4>Legend</h4>
+        <div><span class="dot green"></span> Active</div>
+        <div><span class="dot orange"></span> Pending</div>
+        <div><span class="dot yellow"></span> Renewal Pending</div>
+        <div><span class="dot red"></span> Expired</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="popup" id="popup">
+  <button class="color-btn">Change color</button>
+  <div class="popup-title">Aling bebang’s store</div>
+  <div>Address*</div>
+  <div class="link">See Photos</div>
+</div>
+
+<script src="map view.js"></script>
+</body>
+</html>

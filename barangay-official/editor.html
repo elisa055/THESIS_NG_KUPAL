@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor — Barangay Pembo</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&family=Raleway:wght@400;500;600&family=Nunito:wght@400;500;600&family=Inter:wght@400;500;600&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+
+/* ═══════════════════════════════════════════
+   REGISTER FORM STYLES (scoped to .reg-root)
+═══════════════════════════════════════════ */
+.reg-root * { box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+.reg-root { background-color: #f5f5f5; color: #333; }
+.reg-root .container { max-width: 100%; margin: 0 auto; background-color: white; width: 100%; }
+.reg-root .header { background-color: #808080; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+.reg-root .header-left { display: flex; align-items: center; gap: 20px; }
+.reg-root .logo { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; background: rgba(255,255,255,0.25); flex-shrink: 0; }
+.reg-root .header-left h1 { font-size: 20px; font-weight: 600; margin: 0; }
+.reg-root .header-left p  { font-size: 14px; margin: 0; opacity: 0.9; }
+.reg-root .header-right   { text-align: right; }
+.reg-root .header-right h2 { font-size: 16px; font-weight: 600; margin: 0 0 5px; }
+.reg-root .header-right p  { font-size: 15px; font-weight: 600; margin: 0 0 10px; opacity: 0.9; }
+.reg-root .logout { color: white; text-decoration: underline; font-size: 14px; cursor: pointer; }
+.reg-root .logout:hover { opacity: 0.8; }
+.reg-root .main-content { padding: 30px 20px; display: flex; justify-content: center; }
+.reg-root .form-container { background-color: white; width: 100%; max-width: 800px; }
+.reg-root .form-container h2 { font-size: 24px; margin-bottom: 10px; font-weight: 600; text-align: center; }
+.reg-root .subtitle { color: #999; font-size: 14px; margin-bottom: 30px; text-align: center; }
+.reg-root form { width: 100%; }
+.reg-root fieldset { border: none; padding: 0 0 30px; margin: 0; }
+.reg-root legend { font-size: 14px; font-weight: 600; color: #666; padding: 0 0 15px; margin: 0; }
+.reg-root .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.reg-root .form-group { display: flex; flex-direction: column; }
+.reg-root .form-group.full-width { grid-column: 1 / -1; }
+.reg-root .form-group label { font-size: 14px; color: #666; margin-bottom: 8px; font-weight: 500; }
+.reg-root .form-group input,
+.reg-root .form-group select { padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; background-color: #f9f9f9; width: 100%; font-family: inherit; }
+.reg-root .form-group input:focus,
+.reg-root .form-group select:focus { outline: none; border-color: #666; background-color: white; }
+.reg-root .radio-group { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.reg-root .radio-label { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
+.reg-root .radio-label input[type="radio"] { cursor: pointer; width: auto; margin: 0; }
+.reg-root .pin-location-btn { background-color: #666; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 500; width: fit-content; font-family: inherit; }
+.reg-root .pin-location-btn:hover { background-color: #555; }
+.reg-root .consent-section { margin-top: 30px; padding: 20px 0; border-top: 1px solid #eee; }
+.reg-root .consent-group { margin-bottom: 20px; }
+.reg-root .checkbox-label { display: flex; align-items: flex-start; gap: 15px; font-size: 13px; color: #666; cursor: pointer; line-height: 1.5; }
+.reg-root .checkbox-label input[type="radio"] { margin-top: 4px; cursor: pointer; width: auto; }
+.reg-root .info-icon { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; min-width: 20px; background-color: #ddd; border-radius: 50%; font-size: 12px; font-weight: bold; flex-shrink: 0; }
+.reg-root .button-group { display: flex; gap: 15px; margin-top: 30px; justify-content: flex-end; }
+.reg-root .btn { padding: 10px 30px; border-radius: 4px; font-size: 14px; font-weight: 500; cursor: pointer; border: 1px solid #ddd; transition: all .3s; font-family: inherit; }
+.reg-root .btn-register { background-color: #666; color: white; border-color: #666; }
+.reg-root .btn-register:hover { background-color: #555; }
+.reg-root .btn-cancel { background-color: white; color: #666; border-color: #ddd; }
+.reg-root .btn-cancel:hover { background-color: #f5f5f5; }
+@media (max-width:768px) {
+  .reg-root .header { flex-direction: column; gap: 20px; text-align: center; }
+  .reg-root .header-right { text-align: center; }
+  .reg-root .form-row { grid-template-columns: 1fr; }
+  .reg-root .radio-group { grid-template-columns: 1fr; }
+  .reg-root .main-content { padding: 20px; }
+  .reg-root .button-group { flex-direction: column; }
+  .reg-root .btn { width: 100%; }
+}
+
+/* ═══════════════════════════════════════════
+   EDITOR UI
+═══════════════════════════════════════════ */
+:root {
+  --tb: 50px;
+  --sb-bg: #1a1a2e;
+  --sb-surf: #0f2d50;
+  --sb-bdr: #1e3d68;
+  --sb-txt: #dde6f5;
+  --sb-muted: #7090b8;
+  --accent: #e63946;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; background: #111; font-family: 'DM Sans', sans-serif; }
+
+/* TOOLBAR */
+#ed-bar {
+  position: fixed; top: 0; left: 0; right: 0; height: var(--tb);
+  background: linear-gradient(90deg, #1a0507, #2d0d10);
+  border-bottom: 1px solid #3d1015;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 10px; z-index: 500; gap: 6px;
+}
+.bar-left  { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
+.bar-mid   { display: flex; justify-content: center; flex: 1; min-width: 0; }
+.bar-right { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+.bar-title { color: rgba(255,255,255,.6); font-size: 13px; font-weight: 700; letter-spacing: .3px; }
+
+.bb {
+  padding: 5px 10px; border-radius: 6px; border: 1px solid transparent;
+  font-size: 11px; font-weight: 600; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; transition: all .15s; white-space: nowrap;
+}
+.bb-back { background: transparent; color: #a07070; border-color: #3d1015; }
+.bb-back:hover { color: #fff; border-color: #6b0f12; }
+.bb-set  { background: #2d1015; color: #f4a0a8; border-color: #4d1a20; }
+.bb-set:hover { background: #4d1a20; color: #fff; }
+.bb-data { background: #0f2d50; color: #7dd3fc; border-color: #1e3d68; font-size: 10px; padding: 5px 8px; }
+.bb-data:hover { background: #1a4a80; color: #fff; }
+.bb-rst  { background: transparent; color: #7090b8; border-color: #2a3a5a; font-size: 10px; padding: 5px 8px; }
+.bb-rst:hover { color: #fff; border-color: #5a7aaa; }
+.bb-pub  { background: #22c55e; color: #fff; border-color: #16a34a; }
+.bb-pub:hover { background: #16a34a; }
+
+/* PAGE SWITCHER */
+.page-sw {
+  display: flex; align-items: center; gap: 2px;
+  background: rgba(0,0,0,.35); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 8px; padding: 3px;
+}
+.ps {
+  padding: 4px 9px; border-radius: 5px; border: none;
+  font-size: 11px; font-weight: 600; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; transition: all .15s;
+  background: transparent; color: rgba(255,255,255,.4); white-space: nowrap;
+}
+.ps:hover { color: rgba(255,255,255,.8); }
+.ps.on { background: var(--accent); color: #fff; }
+
+/* SCROLLABLE BODY */
+#ed-body { position: fixed; top: var(--tb); left: 0; right: 0; bottom: 0; overflow-y: auto; }
+
+/* SIDEBAR */
+#ed-sb {
+  position: fixed; top: calc(var(--tb) + 14px); right: 14px; width: 274px;
+  background: var(--sb-bg); border: 1px solid var(--sb-bdr); border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.65);
+  z-index: 600; display: flex; flex-direction: column;
+  max-height: calc(100vh - var(--tb) - 28px); overflow: hidden;
+  transition: transform .25s cubic-bezier(.4,0,.2,1), opacity .25s;
+}
+#ed-sb.off { transform: translateX(302px); opacity: 0; pointer-events: none; }
+
+.sb-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 14px 9px; cursor: grab; user-select: none;
+  border-bottom: 1px solid var(--sb-bdr);
+  color: var(--sb-txt); font-size: 13px; font-weight: 600; flex-shrink: 0;
+}
+.sb-top:active { cursor: grabbing; }
+.sb-x { background: transparent; border: none; color: var(--sb-muted); cursor: pointer; font-size: 14px; padding: 2px 6px; border-radius: 4px; line-height: 1; }
+.sb-x:hover { color: #fff; }
+
+.sb-nav { display: flex; background: rgba(0,0,0,.2); border-bottom: 1px solid var(--sb-bdr); flex-shrink: 0; }
+.sn {
+  flex: 1; padding: 7px 2px; background: transparent; border: none;
+  border-bottom: 2px solid transparent; color: var(--sb-muted);
+  font-size: 10px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+  cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all .15s;
+}
+.sn:hover { color: var(--sb-txt); }
+.sn.a { color: #fff; border-bottom-color: var(--accent); }
+
+.sp { display: none; overflow-y: auto; padding: 13px; scrollbar-width: thin; scrollbar-color: #2a3a5a transparent; }
+.sp.a { display: block; }
+
+.sg { margin-bottom: 13px; }
+.sg > em { display: block; font-style: normal; font-size: 10px; font-weight: 700; color: var(--sb-muted); text-transform: uppercase; letter-spacing: .8px; margin-bottom: 5px; }
+.lsep { height: 1px; background: var(--sb-bdr); margin: 8px 0 13px; }
+
+.cr { display: flex; align-items: center; gap: 10px; background: var(--sb-surf); border: 1px solid var(--sb-bdr); border-radius: 8px; padding: 5px 10px; }
+.cr input[type="color"] { width: 28px; height: 28px; border: none; border-radius: 5px; cursor: pointer; background: transparent; padding: 0; }
+.chx { font-size: 12px; color: var(--sb-txt); font-family: monospace; }
+
+.pts { display: flex; gap: 8px; flex-wrap: wrap; }
+.pt { width: 32px; height: 32px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: all .2s; box-shadow: 0 2px 6px rgba(0,0,0,.4); }
+.pt:hover { transform: scale(1.12); border-color: #fff; }
+
+.sc { width: 100%; padding: 8px 10px; background: var(--sb-surf); border: 1px solid var(--sb-bdr); border-radius: 8px; color: var(--sb-txt); font-size: 12px; font-family: 'DM Sans', sans-serif; outline: none; }
+.sc:focus { border-color: var(--accent); }
+select.sc { cursor: pointer; }
+
+.rr { display: flex; align-items: center; gap: 10px; }
+.rr input[type="range"] { flex: 1; accent-color: var(--accent); cursor: pointer; }
+.rv { font-size: 11px; color: var(--sb-txt); min-width: 36px; text-align: right; font-family: monospace; }
+
+.pg-badge { display: inline-block; padding: 2px 7px; border-radius: 20px; background: var(--accent); color: #fff; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-left: 5px; }
+
+/* MODAL */
+#ed-modal { position: fixed; inset: 0; background: rgba(0,0,0,.75); z-index: 900; display: flex; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(4px); }
+#ed-modal.off { display: none; }
+.mm { background: #1a1a2e; border: 1px solid var(--sb-bdr); border-radius: 14px; width: 100%; max-width: 600px; max-height: 80vh; display: flex; flex-direction: column; box-shadow: 0 30px 80px rgba(0,0,0,.7); overflow: hidden; }
+.mm-hdr { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid var(--sb-bdr); color: #fff; font-size: 14px; font-weight: 600; flex-shrink: 0; }
+.mm-x { background: transparent; border: none; color: var(--sb-muted); cursor: pointer; font-size: 15px; padding: 4px 8px; border-radius: 4px; }
+.mm-x:hover { color: #fff; }
+.mm-pre { flex: 1; overflow: auto; padding: 14px 18px; font-family: 'Courier New', monospace; font-size: 12px; color: #7dd3fc; white-space: pre; background: #0d1117; scrollbar-width: thin; scrollbar-color: #2a3a5a transparent; }
+.mm-copy { margin: 10px 18px 14px; padding: 9px; background: var(--accent); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; font-family: 'DM Sans', sans-serif; flex-shrink: 0; }
+.mm-copy:hover { background: #c1121f; }
+
+/* TOAST */
+#ed-toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(60px); background: #22c55e; color: #fff; padding: 9px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; z-index: 999; transition: transform .28s ease; pointer-events: none; white-space: nowrap; font-family: 'DM Sans', sans-serif; }
+#ed-toast.on { transform: translateX(-50%) translateY(0); }
+
+  </style>
+</head>
+<body>
+
+<!-- TOOLBAR -->
+<div id="ed-bar">
+  <div class="bar-left">
+    <button class="bb bb-back" id="bBack">← Back</button>
+    <span class="bar-title">Editor</span>
+  </div>
+
+  <div class="bar-mid">
+    <div class="page-sw">
+      <button class="ps on" data-page="register">Register</button>
+      <button class="ps"    data-page="business-owner">Business Owner</button>
+      <button class="ps"    data-page="dpo">DPO</button>
+      <button class="ps"    data-page="zone-leader">Zone Leader</button>
+    </div>
+  </div>
+
+  <div class="bar-right">
+    <button class="bb bb-set"  id="bToggle">⚙ Settings</button>
+    <button class="bb bb-data" id="bJSON">↓ JSON</button>
+    <button class="bb bb-data" id="bCSS">↓ CSS</button>
+    <button class="bb bb-rst"  id="bReset">↺ Reset</button>
+    <button class="bb bb-pub"  id="bPublish">🌐 Publish</button>
+  </div>
+</div>
+
+<!-- SCROLLABLE FORM AREA -->
+<div id="ed-body">
+  <div class="reg-root" id="regRoot">
+    <div class="container">
+
+      <!-- HEADER -->
+      <header class="header">
+        <div class="header-left">
+          <img src="images/logo.png" alt="Barangay Pembo Logo" class="logo" onerror="this.style.background='rgba(255,255,255,0.3)';this.style.display='flex';this.removeAttribute('src')">
+          <div>
+            <h1 id="fBrgy">Barangay Pembo</h1>
+            <p  id="fPort">Business Owner Portal</p>
+          </div>
+        </div>
+        <div class="header-right">
+          <h2>Owner name</h2>
+          <p>Owner@gmail.com</p>
+          <a href="#" class="logout">Logout</a>
+        </div>
+      </header>
+
+      <!-- MAIN FORM -->
+      <main class="main-content">
+        <div class="form-container">
+          <h2 id="fTitle">Register Business</h2>
+          <p class="subtitle" id="fSub">Fill up business details and payment information</p>
+
+          <form onsubmit="return false;">
+
+            <!-- Business Information -->
+            <fieldset>
+              <legend id="fS1">Business Information</legend>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="business-name" id="fLB">Business Name</label>
+                  <input type="text" id="business-name" name="business-name" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="owner-name" id="fLO">Owner Name</label>
+                  <input type="text" id="owner-name" name="owner-name" placeholder="">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="business-type" id="fLBT">Business Type</label>
+                  <select id="business-type" name="business-type">
+                    <option>Select Business Type</option>
+                    <option>Sole Proprietorship</option>
+                    <option>Partnership</option>
+                    <option>Corporation</option>
+                    <option>Cooperative</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label id="fLRT">Registration Type</label>
+                  <div class="radio-group">
+                    <label class="radio-label">
+                      <input type="radio" name="registration-type" value="new"> New
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="registration-type" value="renewal"> Renewal
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="registration-type" value="owner"> Owner
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="registration-type" value="lease"> Lease
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="address" id="fLA">Address</label>
+                <input type="text" id="address" name="address" placeholder="">
+              </div>
+            </fieldset>
+
+            <!-- Pin Location -->
+            <div class="form-group full-width">
+              <button type="button" class="pin-location-btn" id="fBPin">Pin Your Location</button>
+            </div>
+
+            <!-- Contact Number -->
+            <div class="form-group full-width">
+              <label for="contact-number" id="fLC">Contact Number</label>
+              <input type="tel" id="contact-number" name="contact-number" placeholder="">
+            </div>
+
+            <!-- Schedule -->
+            <div class="form-group full-width">
+              <label for="schedule" id="fLSc">Pick a schedule</label>
+              <select id="schedule" name="schedule">
+                <option>Select Schedule</option>
+                <option>Monday – Wednesday, 8:00 AM – 12:00 PM</option>
+                <option>Monday – Wednesday, 1:00 PM – 5:00 PM</option>
+                <option>Thursday – Friday, 8:00 AM – 12:00 PM</option>
+                <option>Thursday – Friday, 1:00 PM – 5:00 PM</option>
+              </select>
+            </div>
+
+            <!-- Financial Information -->
+            <fieldset>
+              <legend id="fS2">Financial Information</legend>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="capitalization">Capitalization (Income)</label>
+                  <input type="text" id="capitalization" name="capitalization" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="capitalization-2">Capitalization (Income)</label>
+                  <input type="text" id="capitalization-2" name="capitalization-2" placeholder="">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="years-operation">Years in Operation</label>
+                  <input type="text" id="years-operation" name="years-operation" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="amount-paid">Amount Paid (Prior Year)</label>
+                  <input type="text" id="amount-paid" name="amount-paid" placeholder="">
+                </div>
+              </div>
+            </fieldset>
+
+            <!-- Consent -->
+            <div class="consent-section">
+              <div class="consent-group">
+                <label class="checkbox-label">
+                  <input type="radio" name="consent" value="accept">
+                  <span class="info-icon">ⓘ</span>
+                  By selecting "Accept", you hereby give your consent to the collection, use, and storage of your personal information for the purpose of business database registration and monitoring within the Barangay Pembo system. Processing of your personal information shall be in accordance with the Data Privacy Act of 2012.
+                </label>
+              </div>
+              <div class="consent-group">
+                <label class="checkbox-label">
+                  <input type="radio" name="consent" value="decline">
+                  <span class="info-icon">ⓘ</span>
+                  By selecting "Reject", you understand that you are declining to share your personal information, and therefore cannot proceed with the registration process.
+                </label>
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-group">
+              <button type="submit" class="btn btn-register" id="fBReg">Register</button>
+              <button type="button" class="btn btn-cancel"   id="fBCan">Cancel</button>
+            </div>
+
+          </form>
+        </div>
+      </main>
+
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING SIDEBAR -->
+<aside id="ed-sb">
+  <div class="sb-top" id="sbDrag">
+    <span>⠿ &nbsp;Settings <span class="pg-badge" id="pgBadge">Register</span></span>
+    <button class="sb-x" id="bClose">✕</button>
+  </div>
+  <div class="sb-nav">
+    <button class="sn a" data-t="c">Colors</button>
+    <button class="sn"   data-t="f">Fonts</button>
+    <button class="sn"   data-t="l">Labels</button>
+    <button class="sn"   data-t="s">Spacing</button>
+  </div>
+
+  <!-- COLORS TAB -->
+  <div class="sp a" id="t-c">
+    <div class="sg"><em>Header Color</em>      <div class="cr"><input type="color" id="cH"   value="#808080"><span class="chx" id="cHx">  #808080</span></div></div>
+    <div class="sg"><em>Header Text</em>        <div class="cr"><input type="color" id="cHT"  value="#ffffff"><span class="chx" id="cHTx"> #ffffff</span></div></div>
+    <div class="sg"><em>Page Background</em>    <div class="cr"><input type="color" id="cPB"  value="#f5f5f5"><span class="chx" id="cPBx"> #f5f5f5</span></div></div>
+    <div class="sg"><em>Form Background</em>    <div class="cr"><input type="color" id="cFB"  value="#ffffff"><span class="chx" id="cFBx"> #ffffff</span></div></div>
+    <div class="sg"><em>Input Background</em>   <div class="cr"><input type="color" id="cIB"  value="#f9f9f9"><span class="chx" id="cIBx"> #f9f9f9</span></div></div>
+    <div class="sg"><em>Input Border</em>       <div class="cr"><input type="color" id="cBD"  value="#dddddd"><span class="chx" id="cBDx"> #dddddd</span></div></div>
+    <div class="sg"><em>Text Color</em>         <div class="cr"><input type="color" id="cTX"  value="#333333"><span class="chx" id="cTXx"> #333333</span></div></div>
+    <div class="sg"><em>Label Color</em>        <div class="cr"><input type="color" id="cLB"  value="#666666"><span class="chx" id="cLBx"> #666666</span></div></div>
+    <div class="sg"><em>Button Color</em>       <div class="cr"><input type="color" id="cBT"  value="#666666"><span class="chx" id="cBTx"> #666666</span></div></div>
+    <div class="sg"><em>Button Text</em>        <div class="cr"><input type="color" id="cBTT" value="#ffffff"><span class="chx" id="cBTTx">#ffffff</span></div></div>
+    <div class="sg"><em>Quick Presets</em>
+      <div class="pts">
+        <div class="pt" title="Default"
+          data-h="#808080" data-ht="#ffffff" data-pb="#f5f5f5" data-fb="#ffffff" data-ib="#f9f9f9" data-bd="#dddddd" data-tx="#333333" data-lb="#666666" data-bt="#666666" data-btt="#ffffff"
+          style="background:linear-gradient(135deg,#808080 50%,#f5f5f5 50%)"></div>
+        <div class="pt" title="Maroon"
+          data-h="#6b0f12" data-ht="#ffffff" data-pb="#f5f0f0" data-fb="#ffffff" data-ib="#fdf7f7" data-bd="#e8cece" data-tx="#2a1a1a" data-lb="#7a3a3a" data-bt="#6b0f12" data-btt="#ffffff"
+          style="background:linear-gradient(135deg,#6b0f12 50%,#f5f0f0 50%)"></div>
+        <div class="pt" title="Navy"
+          data-h="#1a3a6b" data-ht="#ffffff" data-pb="#eef2f8" data-fb="#ffffff" data-ib="#f4f7fc" data-bd="#c5d4e8" data-tx="#1a2a3a" data-lb="#3a5a8a" data-bt="#1a3a6b" data-btt="#ffffff"
+          style="background:linear-gradient(135deg,#1a3a6b 50%,#eef2f8 50%)"></div>
+        <div class="pt" title="Forest Green"
+          data-h="#1a5c2e" data-ht="#ffffff" data-pb="#eef6f0" data-fb="#ffffff" data-ib="#f4fbf6" data-bd="#b5d8c0" data-tx="#1a2a1e" data-lb="#3a6a4a" data-bt="#1a5c2e" data-btt="#ffffff"
+          style="background:linear-gradient(135deg,#1a5c2e 50%,#eef6f0 50%)"></div>
+        <div class="pt" title="Dark Mode"
+          data-h="#1e1e2e" data-ht="#e0e0f0" data-pb="#111827" data-fb="#1e293b" data-ib="#253045" data-bd="#334155" data-tx="#e0e8f0" data-lb="#94a3b8" data-bt="#38bdf8" data-btt="#0f172a"
+          style="background:linear-gradient(135deg,#1e1e2e 50%,#1e293b 50%);outline:1px solid #555"></div>
+        <div class="pt" title="Golden"
+          data-h="#8a6400" data-ht="#ffffff" data-pb="#fdf8ec" data-fb="#fffdf5" data-ib="#fdf9ea" data-bd="#e8d898" data-tx="#3a2e00" data-lb="#6a5200" data-bt="#8a6400" data-btt="#ffffff"
+          style="background:linear-gradient(135deg,#8a6400 50%,#fdf8ec 50%)"></div>
+        <div class="pt" title="Rose"
+          data-h="#9d174d" data-ht="#ffffff" data-pb="#fdf2f8" data-fb="#ffffff" data-ib="#fdf4fa" data-bd="#f0abcf" data-tx="#3d0a24" data-lb="#9d174d" data-bt="#9d174d" data-btt="#ffffff"
+          style="background:linear-gradient(135deg,#9d174d 50%,#fdf2f8 50%)"></div>
+        <div class="pt" title="Slate"
+          data-h="#334155" data-ht="#f1f5f9" data-pb="#f8fafc" data-fb="#ffffff" data-ib="#f1f5f9" data-bd="#cbd5e1" data-tx="#1e293b" data-lb="#475569" data-bt="#334155" data-btt="#ffffff"
+          style="background:linear-gradient(135deg,#334155 50%,#f8fafc 50%)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FONTS TAB -->
+  <div class="sp" id="t-f">
+    <div class="sg"><em>Font Family</em>
+      <select id="fFont" class="sc">
+        <option value="'Montserrat',sans-serif" selected>Montserrat (Default)</option>
+        <option value="'DM Sans',sans-serif">DM Sans</option>
+        <option value="'Poppins',sans-serif">Poppins</option>
+        <option value="'Raleway',sans-serif">Raleway</option>
+        <option value="'Nunito',sans-serif">Nunito</option>
+        <option value="'Inter',sans-serif">Inter</option>
+        <option value="'Lora',serif">Lora (Serif)</option>
+        <option value="Georgia,serif">Georgia (Serif)</option>
+      </select>
+    </div>
+    <div class="sg"><em>Base Font Size</em>
+      <div class="rr"><input type="range" id="fSz" min="12" max="20" value="14" step="1"><span class="rv" id="fSzV">14px</span></div></div>
+    <div class="sg"><em>Title Size</em>
+      <div class="rr"><input type="range" id="tSz" min="16" max="40" value="24" step="1"><span class="rv" id="tSzV">24px</span></div></div>
+    <div class="sg"><em>Label Weight</em>
+      <select id="fWt" class="sc">
+        <option value="400">Regular</option>
+        <option value="500" selected>Medium</option>
+        <option value="600">SemiBold</option>
+        <option value="700">Bold</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- LABELS TAB -->
+  <div class="sp" id="t-l">
+    <div class="sg"><em>Form Title</em>         <input type="text" class="sc" id="lTi"  value="Register Business"></div>
+    <div class="sg"><em>Subtitle</em>            <input type="text" class="sc" id="lSu"  value="Fill up business details and payment information"></div>
+    <div class="sg"><em>Barangay Name</em>       <input type="text" class="sc" id="lBr"  value="Barangay Pembo"></div>
+    <div class="sg"><em>Portal Label</em>        <input type="text" class="sc" id="lPo"  value="Business Owner Portal"></div>
+    <div class="lsep"></div>
+    <div class="sg"><em>Section 1</em>           <input type="text" class="sc" id="lS1"  value="Business Information"></div>
+    <div class="sg"><em>Section 2</em>           <input type="text" class="sc" id="lS2"  value="Financial Information"></div>
+    <div class="lsep"></div>
+    <div class="sg"><em>Business Name Field</em> <input type="text" class="sc" id="lLB"  value="Business Name"></div>
+    <div class="sg"><em>Owner Name Field</em>    <input type="text" class="sc" id="lLO"  value="Owner Name"></div>
+    <div class="sg"><em>Business Type</em>       <input type="text" class="sc" id="lLBT" value="Business Type"></div>
+    <div class="sg"><em>Reg. Type</em>           <input type="text" class="sc" id="lLRT" value="Registration Type"></div>
+    <div class="sg"><em>Address</em>             <input type="text" class="sc" id="lLA"  value="Address"></div>
+    <div class="sg"><em>Contact Number</em>      <input type="text" class="sc" id="lLC"  value="Contact Number"></div>
+    <div class="sg"><em>Schedule</em>            <input type="text" class="sc" id="lLSc" value="Pick a schedule"></div>
+    <div class="lsep"></div>
+    <div class="sg"><em>Register Button</em>     <input type="text" class="sc" id="lBR"  value="Register"></div>
+    <div class="sg"><em>Cancel Button</em>       <input type="text" class="sc" id="lBC"  value="Cancel"></div>
+    <div class="sg"><em>Pin Location Button</em> <input type="text" class="sc" id="lBP"  value="Pin Your Location"></div>
+  </div>
+
+  <!-- SPACING TAB -->
+  <div class="sp" id="t-s">
+    <div class="sg"><em>Input Border Radius</em>
+      <div class="rr"><input type="range" id="sIR" min="0" max="20" value="4"   step="1"> <span class="rv" id="sIRV">4px</span></div></div>
+    <div class="sg"><em>Button Border Radius</em>
+      <div class="rr"><input type="range" id="sBR" min="0" max="40" value="4"   step="1"> <span class="rv" id="sBRV">4px</span></div></div>
+    <div class="sg"><em>Form Max Width</em>
+      <div class="rr"><input type="range" id="sFW" min="400" max="1000" value="800" step="20"><span class="rv" id="sFWV">800px</span></div></div>
+    <div class="sg"><em>Content Padding</em>
+      <div class="rr"><input type="range" id="sFP" min="0" max="80" value="20"  step="4"> <span class="rv" id="sFPV">20px</span></div></div>
+    <div class="sg"><em>Field Gap</em>
+      <div class="rr"><input type="range" id="sFG" min="8" max="40" value="20"  step="2"> <span class="rv" id="sFGV">20px</span></div></div>
+    <div class="sg"><em>Input Padding</em>
+      <div class="rr"><input type="range" id="sIP" min="6" max="24" value="12"  step="1"> <span class="rv" id="sIPV">12px</span></div></div>
+  </div>
+</aside>
+
+<!-- MODAL -->
+<div id="ed-modal" class="off">
+  <div class="mm">
+    <div class="mm-hdr"><span id="mT">Export</span><button class="mm-x" id="mX">✕</button></div>
+    <pre class="mm-pre" id="mC"></pre>
+    <button class="mm-copy" id="mCp">📋 Copy to Clipboard</button>
+  </div>
+</div>
+
+<div id="ed-toast"></div>
+
+<script>
+(function () {
+
+  const $ = id => document.getElementById(id);
+  const $$ = s  => [...document.querySelectorAll(s)];
+  const set = (id, v) => { const e = $(id); if (e) e.textContent = v; };
+
+  /* ── PAGE CONFIG ── */
+  const PAGE_CFG = {
+    'register': {
+      badge: 'Register',
+      lTi:'Register Business', lSu:'Fill up business details and payment information',
+      lBr:'Barangay Pembo',    lPo:'Business Owner Portal',
+      lS1:'Business Information', lS2:'Financial Information',
+      lLB:'Business Name',    lLO:'Owner Name',
+      lLBT:'Business Type',   lLRT:'Registration Type',
+      lLA:'Address',           lLC:'Contact Number',   lLSc:'Pick a schedule',
+      lBR:'Register',          lBC:'Cancel',            lBP:'Pin Your Location',
+    },
+    'business-owner': {
+      badge: 'Business Owner',
+      lTi:'Business Owner Registration', lSu:'Complete your business owner profile',
+      lBr:'Barangay Pembo',              lPo:'Business Owner Portal',
+      lS1:'Owner Information',           lS2:'Financial Details',
+      lLB:'Business Name',               lLO:'Owner Full Name',
+      lLBT:'Business Category',          lLRT:'Ownership Type',
+      lLA:'Business Address',            lLC:'Contact Number',  lLSc:'Preferred Schedule',
+      lBR:'Submit',                      lBC:'Cancel',           lBP:'Pin Business Location',
+    },
+    'dpo': {
+      badge: 'DPO',
+      lTi:'DPO Registration Form', lSu:'Data Privacy Officer — Registration & Compliance (RA 10173)',
+      lBr:'Barangay Pembo',        lPo:'Data Privacy Officer Portal',
+      lS1:'Officer Information',   lS2:'Compliance Details',
+      lLB:'Organization Name',     lLO:'DPO Full Name',
+      lLBT:'Organization Type',    lLRT:'Appointment Type',
+      lLA:'Office Address',        lLC:'Contact Number',  lLSc:'Preferred Schedule',
+      lBR:'Submit',                lBC:'Cancel',           lBP:'Pin Office Location',
+    },
+    'zone-leader': {
+      badge: 'Zone Leader',
+      lTi:'Zone Leader Registration', lSu:'Zone Leader — Assignment & Area Responsibilities',
+      lBr:'Barangay Pembo',           lPo:'Zone Leader Portal',
+      lS1:'Leader Information',       lS2:'Zone Details',
+      lLB:'Zone Name',                lLO:'Leader Full Name',
+      lLBT:'Zone Type',               lLRT:'Assignment Type',
+      lLA:'Zone Address',             lLC:'Contact Number',  lLSc:'Schedule',
+      lBR:'Submit',                   lBC:'Cancel',           lBP:'Pin Zone Location',
+    },
+  };
+
+  /* ── STATE ── */
+  const DEF = {
+    cH:'#808080', cHT:'#ffffff', cPB:'#f5f5f5', cFB:'#ffffff',
+    cIB:'#f9f9f9', cBD:'#dddddd', cTX:'#333333', cLB:'#666666',
+    cBT:'#666666', cBTT:'#ffffff',
+    fFont:"'Montserrat',sans-serif", fSz:'14', tSz:'24', fWt:'500',
+    sIR:'4', sBR:'4', sFW:'800', sFP:'20', sFG:'20', sIP:'12',
+  };
+
+  const pageStyle = {};
+  Object.keys(PAGE_CFG).forEach(p => { pageStyle[p] = { ...DEF }; });
+
+  let cur = 'register';
+  let V   = pageStyle[cur];
+
+  /* ── DYNAMIC STYLE TAG ── */
+  const sty = Object.assign(document.createElement('style'), { id: 'ed-dyn' });
+  document.head.appendChild(sty);
+
+  /* ── APPLY STYLES ── */
+  function apply() {
+    sty.textContent = `
+      .reg-root{background-color:${V.cPB};}
+      .reg-root .container{background-color:${V.cFB};}
+      .reg-root .header{background-color:${V.cH}!important;color:${V.cHT}!important;}
+      .reg-root .header-left h1,.reg-root .header-left p,
+      .reg-root .header-right h2,.reg-root .header-right p,
+      .reg-root .logout{color:${V.cHT}!important;}
+      .reg-root .form-container{background-color:${V.cFB}!important;color:${V.cTX}!important;max-width:${V.sFW}px!important;}
+      .reg-root .form-group label,.reg-root legend{color:${V.cLB}!important;font-weight:${V.fWt}!important;}
+      .reg-root .subtitle{color:${V.cLB}!important;}
+      .reg-root .form-group input,.reg-root .form-group select{
+        background-color:${V.cIB}!important;border-color:${V.cBD}!important;
+        color:${V.cTX}!important;border-radius:${V.sIR}px!important;padding:${V.sIP}px!important;
+      }
+      .reg-root .form-group input:focus,.reg-root .form-group select:focus{
+        border-color:${V.cLB}!important;background-color:${V.cFB}!important;
+      }
+      .reg-root .pin-location-btn{background-color:${V.cBT}!important;color:${V.cBTT}!important;border-radius:${V.sBR}px!important;}
+      .reg-root .btn-register{background-color:${V.cBT}!important;color:${V.cBTT}!important;border-color:${V.cBT}!important;border-radius:${V.sBR}px!important;}
+      .reg-root .btn-cancel{border-radius:${V.sBR}px!important;}
+      .reg-root .radio-label,.reg-root .checkbox-label{color:${V.cLB}!important;}
+      .reg-root .consent-section{border-top-color:${V.cBD}!important;}
+      .reg-root .main-content{padding:30px ${V.sFP}px!important;}
+      .reg-root .form-row{gap:${V.sFG}px!important;margin-bottom:${V.sFG}px!important;}
+      .reg-root,.reg-root *{font-family:${V.fFont}!important;font-size:${V.fSz}px!important;}
+      .reg-root .form-container h2{font-size:${V.tSz}px!important;}
+      .reg-root .header-left h1{font-size:20px!important;}
+      .reg-root .header-right h2{font-size:16px!important;}
+    `;
+  }
+
+  /* ── APPLY LABELS ── */
+  function applyLabels() {
+    set('fTitle', $('lTi').value);  set('fSub',  $('lSu').value);
+    set('fBrgy',  $('lBr').value);  set('fPort', $('lPo').value);
+    const legs = $$('.reg-root fieldset legend');
+    if (legs[0]) legs[0].textContent = $('lS1').value;
+    if (legs[1]) legs[1].textContent = $('lS2').value;
+    set('fLB',   $('lLB').value);   set('fLO',  $('lLO').value);
+    set('fLBT',  $('lLBT').value);  set('fLRT', $('lLRT').value);
+    set('fLA',   $('lLA').value);   set('fLC',  $('lLC').value);
+    set('fLSc',  $('lLSc').value);
+    set('fBReg', $('lBR').value);   set('fBCan', $('lBC').value);
+    set('fBPin', $('lBP').value);
+  }
+
+  /* ── LOAD PAGE LABELS INTO SIDEBAR ── */
+  function loadLabels(page) {
+    const c = PAGE_CFG[page];
+    ['lTi','lSu','lBr','lPo','lS1','lS2','lLB','lLO','lLBT','lLRT',
+     'lLA','lLC','lLSc','lBR','lBC','lBP'].forEach(k => {
+      const el = $(k); if (el && c[k] !== undefined) el.value = c[k];
+    });
+    applyLabels();
+  }
+
+  /* ── SYNC CONTROLS ── */
+  function syncColors() {
+    ['cH','cHT','cPB','cFB','cIB','cBD','cTX','cLB','cBT','cBTT'].forEach(k => {
+      const el = $(k); if (!el) return;
+      el.value = V[k];
+      const hx = $(k + 'x'); if (hx) hx.textContent = V[k];
+    });
+  }
+  function syncRanges() {
+    [['fSz','fSzV'],['tSz','tSzV'],['sIR','sIRV'],['sBR','sBRV'],
+     ['sFW','sFWV'],['sFP','sFPV'],['sFG','sFGV'],['sIP','sIPV']].forEach(([k, v]) => {
+      const el = $(k); if (!el) return; el.value = V[k];
+      const rv = $(v); if (rv) rv.textContent = V[k] + 'px';
+    });
+    const ff = $('fFont'); if (ff) ff.value = V.fFont;
+    const fw = $('fWt');   if (fw) fw.value = V.fWt;
+  }
+
+  /* ── BIND: COLORS ── */
+  ['cH','cHT','cPB','cFB','cIB','cBD','cTX','cLB','cBT','cBTT'].forEach(k => {
+    const el = $(k); if (!el) return;
+    el.addEventListener('input', () => {
+      V[k] = el.value;
+      const hx = $(k + 'x'); if (hx) hx.textContent = el.value;
+      apply();
+    });
+  });
+
+  /* ── BIND: PRESETS ── */
+  $$('.pt').forEach(p => {
+    p.addEventListener('click', () => {
+      const d = p.dataset;
+      V.cH=d.h; V.cHT=d.ht; V.cPB=d.pb; V.cFB=d.fb;
+      V.cIB=d.ib; V.cBD=d.bd; V.cTX=d.tx; V.cLB=d.lb;
+      V.cBT=d.bt; V.cBTT=d.btt;
+      apply(); syncColors();
+    });
+  });
+
+  /* ── BIND: FONTS ── */
+  $('fFont').addEventListener('change', function () { V.fFont = this.value; apply(); });
+  $('fWt').addEventListener('change',   function () { V.fWt   = this.value; apply(); });
+
+  /* ── BIND: RANGES ── */
+  [['fSz','fSzV'],['tSz','tSzV'],['sIR','sIRV'],['sBR','sBRV'],
+   ['sFW','sFWV'],['sFP','sFPV'],['sFG','sFGV'],['sIP','sIPV']].forEach(([k, v]) => {
+    const el = $(k); if (!el) return;
+    el.addEventListener('input', () => {
+      V[k] = el.value; const rv = $(v); if (rv) rv.textContent = el.value + 'px'; apply();
+    });
+  });
+
+  /* ── BIND: LABELS ── */
+  ['lTi','lSu','lBr','lPo','lS1','lS2',
+   'lLB','lLO','lLBT','lLRT','lLA','lLC','lLSc',
+   'lBR','lBC','lBP'].forEach(k => {
+    const el = $(k); if (!el) return;
+    el.addEventListener('input', applyLabels);
+  });
+
+  /* ── PAGE SWITCHER ── */
+  $$('.ps').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pg = btn.dataset.page;
+      if (pg === cur) return;
+      pageStyle[cur] = { ...V };
+      cur = pg; V = pageStyle[cur];
+      $$('.ps').forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      $('pgBadge').textContent = PAGE_CFG[pg].badge;
+      syncColors(); syncRanges(); loadLabels(pg); apply();
+      toast('Viewing: ' + PAGE_CFG[pg].badge);
+    });
+  });
+
+  /* ── TABS ── */
+  $$('.sn').forEach(t => {
+    t.addEventListener('click', () => {
+      $$('.sn').forEach(x => x.classList.remove('a'));
+      $$('.sp').forEach(x => x.classList.remove('a'));
+      t.classList.add('a'); $('t-' + t.dataset.t).classList.add('a');
+    });
+  });
+
+  /* ── SIDEBAR ── */
+  const sb = $('ed-sb');
+  $('bToggle').addEventListener('click', () => sb.classList.toggle('off'));
+  $('bClose').addEventListener('click',  () => sb.classList.add('off'));
+
+  /* ── SIDEBAR DRAG ── */
+  (() => {
+    const h = $('sbDrag');
+    let drag = false, sx = 0, sy = 0, ox = 0, oy = 0;
+    h.addEventListener('pointerdown', e => {
+      if (e.target.id === 'bClose') return;
+      drag = true; h.setPointerCapture(e.pointerId);
+      sx = e.clientX; sy = e.clientY;
+      const r = sb.getBoundingClientRect(); ox = r.left; oy = r.top;
+      sb.style.transition = 'none'; sb.style.right = 'auto';
+    });
+    h.addEventListener('pointermove', e => {
+      if (!drag) return;
+      sb.style.left = Math.max(0, Math.min(window.innerWidth  - sb.offsetWidth,  ox + e.clientX - sx)) + 'px';
+      sb.style.top  = Math.max(0, Math.min(window.innerHeight - sb.offsetHeight, oy + e.clientY - sy)) + 'px';
+    });
+    h.addEventListener('pointerup', () => { drag = false; sb.style.transition = ''; });
+  })();
+
+  /* ── BACK ── */
+  $('bBack').addEventListener('click', () => { window.location.href = 'Index.html'; });
+
+  /* ── RESET ── */
+  $('bReset').addEventListener('click', () => {
+    if (!confirm('Reset all changes for ' + PAGE_CFG[cur].badge + '?')) return;
+    pageStyle[cur] = { ...DEF }; V = pageStyle[cur];
+    syncColors(); syncRanges(); loadLabels(cur); apply();
+    toast('✓ Reset to defaults');
+  });
+
+  /* ── PUBLISH ── */
+  $('bPublish').addEventListener('click', () => {
+    const html = buildPublishHTML();
+    const blob = new Blob([html], { type: 'text/html' });
+    const url  = URL.createObjectURL(blob);
+    const tab  = window.open(url, '_blank');
+    if (!tab) toast('Allow popups to publish', true);
+    else toast('🌐 Opened in new tab!');
+    setTimeout(() => URL.revokeObjectURL(url), 60000);
+  });
+
+  function buildPublishHTML() {
+    return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>${$('fTitle').textContent} — Barangay Pembo</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500;600&family=Raleway:wght@400;500;600&family=Nunito:wght@400;500;600&family=Inter:wght@400;500;600&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background-color:${V.cPB};font-family:${V.fFont};font-size:${V.fSz}px;color:${V.cTX};}
+.container{max-width:100%;background-color:${V.cFB};}
+.header{background-color:${V.cH};color:${V.cHT};padding:20px;display:flex;justify-content:space-between;align-items:center;}
+.header-left{display:flex;align-items:center;gap:20px;}
+.logo{width:50px;height:50px;border-radius:50%;object-fit:cover;}
+.header-left h1{font-size:20px;font-weight:600;margin:0;color:${V.cHT};}
+.header-left p{font-size:14px;margin:0;opacity:.9;color:${V.cHT};}
+.header-right{text-align:right;}
+.header-right h2{font-size:16px;font-weight:600;margin:0 0 5px;color:${V.cHT};}
+.header-right p{font-size:15px;font-weight:600;margin:0 0 10px;opacity:.9;color:${V.cHT};}
+.logout{color:${V.cHT};text-decoration:underline;font-size:14px;cursor:pointer;}
+.main-content{padding:30px ${V.sFP}px;display:flex;justify-content:center;}
+.form-container{background-color:${V.cFB};width:100%;max-width:${V.sFW}px;color:${V.cTX};}
+.form-container h2{font-size:${V.tSz}px;margin-bottom:10px;font-weight:600;text-align:center;}
+.subtitle{color:${V.cLB};font-size:14px;margin-bottom:30px;text-align:center;}
+form{width:100%;}
+fieldset{border:none;padding:0 0 30px;margin:0;}
+legend{font-size:14px;font-weight:${V.fWt};color:${V.cLB};padding:0 0 15px;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:${V.sFG}px;margin-bottom:${V.sFG}px;}
+.form-group{display:flex;flex-direction:column;}
+.form-group.full-width{grid-column:1/-1;}
+.form-group label{font-size:14px;color:${V.cLB};margin-bottom:8px;font-weight:${V.fWt};}
+.form-group input,.form-group select{padding:${V.sIP}px;border:1px solid ${V.cBD};border-radius:${V.sIR}px;font-size:14px;background-color:${V.cIB};color:${V.cTX};width:100%;font-family:${V.fFont};}
+.radio-group{display:grid;grid-template-columns:1fr 1fr;gap:15px;}
+.radio-label{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer;color:${V.cLB};}
+.pin-location-btn{background-color:${V.cBT};color:${V.cBTT};border:none;padding:10px 20px;border-radius:${V.sBR}px;cursor:pointer;font-size:14px;font-weight:500;width:fit-content;font-family:${V.fFont};}
+.consent-section{margin-top:30px;padding:20px 0;border-top:1px solid ${V.cBD};}
+.consent-group{margin-bottom:20px;}
+.checkbox-label{display:flex;align-items:flex-start;gap:15px;font-size:13px;color:${V.cLB};cursor:pointer;line-height:1.5;}
+.info-icon{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;min-width:20px;background-color:#ddd;border-radius:50%;font-size:12px;font-weight:bold;flex-shrink:0;}
+.button-group{display:flex;gap:15px;margin-top:30px;justify-content:flex-end;}
+.btn{padding:10px 30px;border-radius:${V.sBR}px;font-size:14px;font-weight:500;cursor:pointer;border:1px solid #ddd;font-family:${V.fFont};}
+.btn-register{background-color:${V.cBT};color:${V.cBTT};border-color:${V.cBT};}
+.btn-cancel{background-color:white;color:${V.cLB};border-color:#ddd;}
+@media(max-width:768px){.header{flex-direction:column;gap:20px;text-align:center;}.form-row{grid-template-columns:1fr;}.radio-group{grid-template-columns:1fr;}.button-group{flex-direction:column;}.btn{width:100%;}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div class="header-left">
+      <img src="images/logo.png" alt="Barangay Pembo Logo" class="logo" onerror="this.style.display='none'">
+      <div>
+        <h1>${$('fBrgy').textContent}</h1>
+        <p>${$('fPort').textContent}</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <h2>Owner Name</h2>
+      <p>owner@gmail.com</p>
+      <a href="#" class="logout">Logout</a>
+    </div>
+  </header>
+  <main class="main-content">
+    <div class="form-container">
+      <h2>${$('fTitle').textContent}</h2>
+      <p class="subtitle">${$('fSub').textContent}</p>
+      <form>
+        <fieldset>
+          <legend>${$$('.reg-root fieldset legend')[0]?.textContent || 'Business Information'}</legend>
+          <div class="form-row">
+            <div class="form-group"><label>${$('fLB').textContent}</label><input type="text"></div>
+            <div class="form-group"><label>${$('fLO').textContent}</label><input type="text"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>${$('fLBT').textContent}</label><select><option>Select</option></select></div>
+            <div class="form-group"><label>${$('fLRT').textContent}</label>
+              <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="rt" value="new"> New</label>
+                <label class="radio-label"><input type="radio" name="rt" value="renewal"> Renewal</label>
+                <label class="radio-label"><input type="radio" name="rt" value="owner"> Owner</label>
+                <label class="radio-label"><input type="radio" name="rt" value="lease"> Lease</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group full-width"><label>${$('fLA').textContent}</label><input type="text"></div>
+        </fieldset>
+        <div class="form-group full-width" style="margin-bottom:20px;"><button type="button" class="pin-location-btn">${$('fBPin').textContent}</button></div>
+        <div class="form-group full-width" style="margin-bottom:20px;"><label>${$('fLC').textContent}</label><input type="tel"></div>
+        <div class="form-group full-width" style="margin-bottom:20px;"><label>${$('fLSc').textContent}</label><select><option>Select</option></select></div>
+        <fieldset>
+          <legend>${$$('.reg-root fieldset legend')[1]?.textContent || 'Financial Information'}</legend>
+          <div class="form-row">
+            <div class="form-group"><label>Capitalization (Income)</label><input type="text"></div>
+            <div class="form-group"><label>Capitalization (Income)</label><input type="text"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Years in Operation</label><input type="text"></div>
+            <div class="form-group"><label>Amount Paid (Prior Year)</label><input type="text"></div>
+          </div>
+        </fieldset>
+        <div class="consent-section">
+          <div class="consent-group"><label class="checkbox-label"><input type="radio" name="consent" value="accept"><span class="info-icon">ⓘ</span>By selecting "Accept", you hereby give your consent to the collection, use, and storage of your personal information for the purpose of business database registration and monitoring within the Barangay Pembo system.</label></div>
+          <div class="consent-group"><label class="checkbox-label"><input type="radio" name="consent" value="decline"><span class="info-icon">ⓘ</span>By selecting "Reject", you understand that you are declining to share your personal information.</label></div>
+        </div>
+        <div class="button-group">
+          <button type="submit" class="btn btn-register">${$('fBReg').textContent}</button>
+          <button type="button" class="btn btn-cancel">${$('fBCan').textContent}</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>
+</body>
+</html>`;
+  }
+
+  /* ── EXPORT ── */
+  $('bJSON').addEventListener('click', () => {
+    const all = {};
+    Object.keys(pageStyle).forEach(p => { all[p] = pageStyle[p]; });
+    modal('Export JSON — All Pages', JSON.stringify(all, null, 2));
+  });
+  $('bCSS').addEventListener('click', () => {
+    modal('Export CSS — ' + PAGE_CFG[cur].badge,
+`:root {
+  --header-bg:      ${V.cH};
+  --header-text:    ${V.cHT};
+  --page-bg:        ${V.cPB};
+  --form-bg:        ${V.cFB};
+  --input-bg:       ${V.cIB};
+  --border-color:   ${V.cBD};
+  --text-color:     ${V.cTX};
+  --label-color:    ${V.cLB};
+  --btn-bg:         ${V.cBT};
+  --btn-text:       ${V.cBTT};
+  --font-family:    ${V.fFont};
+  --font-size:      ${V.fSz}px;
+  --title-size:     ${V.tSz}px;
+  --label-weight:   ${V.fWt};
+  --input-radius:   ${V.sIR}px;
+  --btn-radius:     ${V.sBR}px;
+  --form-max-width: ${V.sFW}px;
+  --field-gap:      ${V.sFG}px;
+  --input-padding:  ${V.sIP}px;
+}`);
+  });
+
+  /* ── MODAL ── */
+  function modal(title, code) { $('mT').textContent = title; $('mC').textContent = code; $('ed-modal').classList.remove('off'); }
+  $('mX').addEventListener('click', () => $('ed-modal').classList.add('off'));
+  $('ed-modal').addEventListener('click', e => { if (e.target === $('ed-modal')) $('ed-modal').classList.add('off'); });
+  $('mCp').addEventListener('click', () => {
+    navigator.clipboard.writeText($('mC').textContent)
+      .then(() => { toast('📋 Copied!'); $('ed-modal').classList.add('off'); })
+      .catch(() => toast('Copy failed', true));
+  });
+
+  /* ── TOAST ── */
+  function toast(msg, err) {
+    const t = $('ed-toast'); t.textContent = msg;
+    t.style.background = err ? '#ef4444' : '#22c55e';
+    t.classList.add('on'); clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.classList.remove('on'), 2400);
+  }
+
+  /* ── INIT ── */
+  apply();
+  applyLabels();
+
+  // Support ?page= URL param from Index.html links
+  const urlPage = new URLSearchParams(window.location.search).get('page');
+  if (urlPage && PAGE_CFG[urlPage] && urlPage !== 'register') {
+    document.querySelector(`.ps[data-page="${urlPage}"]`)?.click();
+  }
+
+})();
+</script>
+</body>
+</html>

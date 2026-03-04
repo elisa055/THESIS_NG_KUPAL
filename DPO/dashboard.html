@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Business Dashboard</title>
+<link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="navleft">
+    <div class="logo">logo</div>
+    <div>
+      <div class="title">Barangay Pembo</div>
+      <div class="subtitle">Data Privacy Officer</div>
+    </div>
+  </div>
+
+  <div class="navcenter">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="map view.html">Map View</a>
+    <a href="report logs.html">Report Logs</a>
+  </div>
+
+  <div class="navright">
+    <div>
+      <div class="admin-name">Admin name</div>
+      <div class="admin-email">Administrator@gmail.com</div>
+    </div>
+    <a href="#">Logout</a>
+  </div>
+</div>
+
+
+<div class="page">
+
+  <div class="back">← Back to Dashboard</div>
+
+   <div class="status-cards">
+
+    <div class="card">
+      <div class="label">Status</div>
+      <div class="pill gray"></div>
+    </div>
+
+    <div class="card">
+      <div class="label">Payment Status</div>
+      <div class="pill gray"></div>
+    </div>
+
+    <div class="card">
+      <div class="label">Next Renewal Date</div>
+      <div class="date">00/00/00</div>
+    </div>
+
+  </div>
+
+
+  <div class="info-card">
+
+    <div class="info-grid">
+
+      <div>
+        <div class="field">Business name</div>
+        <div class="field">Permit ID</div>
+        <div class="field">Business Type</div>
+        <div class="field">Address</div>
+        <div class="field">Registration Date</div>
+        <div class="field">Longitude</div>
+      </div>
+
+      <div>
+        <div class="field"> </div><br></br>
+        <div class="field">Zone</div>
+        <div class="field">Owner Email</div>
+        <div class="field">Owner Id</div>
+        <div class="field">Latitude</div>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div class="financial-title">Financial Information</div>
+
+    <div class="info-grid">
+
+      <div>
+        <div class="field">Amount Capitalization</div>
+        <div class="field">Years Operation</div>
+      </div>
+
+      <div>
+        <div class="field">Prior Income</div>
+        <div class="field">Amount Paid</div>
+      </div>
+
+    </div>
+
+    <button class="edit-btn" id="editBtn">Edit</button>
+
+  </div>
+
+</div>
+
+<script src="dashboard.js"></script>
+</body>
+</html>

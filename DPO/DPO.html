@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Privacy Officer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="DPO.css">
+</head>
+<body>
+
+<nav class="navbar">
+
+  <div class="navleft">
+    <img src="logo.jpg" alt="Logo" class="logo">
+    <div>
+      <div class="title">Barangay Pembo</div>
+      <div class="subtitle">Data Privacy Officer</div>
+    </div>
+  </div>
+
+  <div class="navcenter">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="map view.html">Map View</a>
+    <a href="report logs.html">Report Logs</a>
+  </div>
+
+  <div class="navright">
+    <span>🔔</span>
+    <div>
+      <div class="admin-name">Admin name</div>
+      <div class="admin-email">Administrator@gmail.com</div>
+    </div>
+    <a href="#" class="logout">Logout</a>
+  </div>
+
+</nav>
+<script src="DPO.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<div class="dashboard">
+
+  <div class="top-section">
+
+    <div class="chart-box">
+      <canvas id="businessPie"></canvas>
+    </div>
+
+
+    <div class="types-box">
+      <h2>Business Types</h2>
+
+      <div class="types-grid">
+
+        <div class="type-list">
+          <div class="pill">Retail</div>
+          <div class="pill">Trading and general merchandise</div>
+          <div class="pill">Builder/Construction</div>
+          <div class="pill">Rental Services/lessor</div>
+          <div class="pill">Medical/Dental/Diagnostics/Clinics</div>
+          <div class="pill">Banks</div>
+          <div class="pill">Other Services</div>
+        </div>
+
+        <div class="status-list">
+          <div class="pill count">Pending Approval <span>0</span></div>
+          <div class="pill count">Renewal Pending <span>0</span></div>
+          <div class="pill count">Paid <span>0</span></div>
+          <div class="pill count">Overdue Payment <span>0</span></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  
+  <div class="filter-row">
+    <div class="tabs">
+      <button class="tab active">All Businesses</button>
+      <button class="tab">Pending Approval</button>
+      <button class="tab">Renewal Pending</button>
+      <button class="tab">Overdue Payment</button>
+    </div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search Business Name">
+    </div>
+  </div>
+
+  <div class="table-card">
+    <div class="table-head">
+      <div>Owner Name<br><small>Owner ID</small></div>
+      <div>Type</div>
+      <div>Zone</div>
+      <div>Registered</div>
+      <div>Renewal</div>
+      <div>Status</div>
+    </div>
+
+    <div class="table-row">
+      <button class="view-btn">View Details</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+
+</html>
