@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Privacy Officer - Barangay Pembo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="DPO.css">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+
+<!-- ── NAVBAR ─────────────────────────────────── -->
+<nav class="navbar">
+  <div class="navleft">
+    <img src="logo.jpg" alt="Barangay Pembo Logo" class="logo">
+    <div class="nav-brand">
+      <div class="title">Barangay Pembo</div>
+      <div class="subtitle">Data Privacy Officer</div>
+    </div>
+  </div>
+
+  <div class="navcenter" id="navMenu">
+    <a href="DPO.html">Dashboard</a>
+    <a href="map view.html">Map View</a>
+    <a href="report logs.html">Report Logs</a>
+  </div>
+
+  <div class="navright">
+    <span class="bell">🔔</span>
+    <div class="admin-logout">
+      <div class="admin-info">
+        <div class="admin-name">Admin name</div>
+        <div class="admin-email">Administrator@gmail.com</div>
+      </div>
+      <a href="#" class="logout">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── DASHBOARD ──────────────────────────────── -->
+<div class="dashboard">
+
+  <!-- TOP: Pie Chart + Business Types -->
+  <div class="top-section">
+
+    <!-- Pie Chart -->
+    <div class="chart-box">
+      <canvas id="businessPie"></canvas>
+    </div>
+
+    <!-- Business Types + Status Counts -->
+    <div class="types-box">
+      <h2>Business Types</h2>
+      <div class="types-grid">
+
+        <!-- Left: type list -->
+        <div class="type-list">
+          <div class="pill">Retail</div>
+          <div class="pill">Trading and general merchandise</div>
+          <div class="pill">Builder/Construction</div>
+          <div class="pill">Rental Services/lessor</div>
+          <div class="pill">Medical/Dental/Diagnostics/Clinics</div>
+          <div class="pill">Banks</div>
+          <div class="pill">Other Services</div>
+        </div>
+
+        <!-- Right: status counts -->
+        <div class="status-list">
+          <div class="pill count">Pending Approval   <span class="badge">0</span></div>
+          <div class="pill count">Renewal Pending    <span class="badge">0</span></div>
+          <div class="pill count">Paid               <span class="badge">0</span></div>
+          <div class="pill count">Overdue Payment    <span class="badge">0</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTER ROW: tabs + search -->
+  <div class="filter-row">
+    <div class="tabs">
+      <button class="tab active">All Businesses</button>
+      <button class="tab">Pending Approval</button>
+      <button class="tab">Renewal Pending</button>
+      <button class="tab">Overdue Payment</button>
+    </div>
+
+    <div class="search-wrap">
+      <input type="text" placeholder="Search Business Name">
+      <span class="search-icon">🔍</span>
+    </div>
+  </div>
+
+  <!-- TABLE CARD -->
+  <div class="table-card">
+
+    <!-- Business Card Row -->
+    <div class="biz-row">
+      <!-- Top: owner + status pills -->
+      <div class="biz-top">
+        <div class="owner-col">
+          <div class="owner-name">Owner Name</div>
+          <div class="owner-id">Owner ID</div>
+        </div>
+        <div class="status-pills">
+          <div class="status-pill">Pending</div>
+          <div class="status-pill">Pending</div>
+        </div>
+      </div>
+
+      <!-- Middle: Type / Zone / Registered / Renewal -->
+      <div class="biz-meta">
+        <div class="meta-col">Type</div>
+        <div class="meta-col">Zone</div>
+        <div class="meta-col">Registered</div>
+        <div class="meta-col">Renewal</div>
+      </div>
+
+      <!-- Bottom: View Details -->
+      <button class="view-details-btn" onclick="location.href='dashboard.html'">View Details</button>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="DPO.js"></script>
+<script src="editor.js"></script>
+</body>
+</html>

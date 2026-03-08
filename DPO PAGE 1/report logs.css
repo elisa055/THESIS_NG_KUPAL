@@ -1,0 +1,185 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body { min-height: 100vh; background: #f5f5f5; }
+
+/* ── NAVBAR ─────────────────────────────────── */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #9e9e9e;
+  padding: 12px clamp(20px, 5vw, 60px);
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.navleft { display: flex; align-items: center; gap: 14px; }
+
+.logo {
+  width: 46px; height: 46px;
+  border-radius: 50%; object-fit: cover; background: #ccc;
+}
+
+.nav-title { font-weight: 700; color: white; font-size: 16px; }
+.nav-sub   { font-size: 12px; color: #eee; }
+
+.navcenter { display: flex; gap: 32px; }
+.navcenter a { color: white; text-decoration: underline; font-size: 14px; }
+
+.navright { display: flex; align-items: center; gap: 20px; }
+.bell { font-size: 18px; color: white; }
+
+.admin-logout {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 1px;
+}
+
+.admin-name  { font-weight: 700; color: white; font-size: 15px; }
+.admin-email { font-size: 12px; color: #eee; }
+.logout      { color: white; text-decoration: underline; font-size: 13px; }
+
+/* ── PAGE ───────────────────────────────────── */
+.page {
+  padding: clamp(24px, 4vw, 48px) clamp(20px, 5vw, 60px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin-top: 6px;
+}
+
+/* ── CARD ───────────────────────────────────── */
+.log-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 18px 22px;
+}
+
+.pending-card { background: #fafafa; }
+
+/* Top row */
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.store-block { flex: 0 0 auto; }
+.store-name  { font-size: 14px; font-weight: 700; color: #333; margin-bottom: 3px; }
+.store-owner { font-size: 12px; color: #888; }
+
+.date-block {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  color: #555;
+  flex: 1;
+}
+
+.zone-block {
+  margin-left: auto;
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* Dot */
+.dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%; flex-shrink: 0;
+}
+.dot.orange { background: #f28c28; }
+.dot.green  { background: #2e9e57; }
+.dot.yellow { background: #e6b800; }
+.dot.red    { background: #d64545; }
+
+/* Fields */
+.fields-row {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.field-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.remarks-group { margin-top: 0; }
+
+.field-label {
+  font-size: 13px;
+  color: #888;
+  white-space: nowrap;
+}
+
+/* The rounded input-like box */
+.field-box {
+  background: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  color: #444;
+  min-width: 140px;
+}
+
+.see-photo {
+  font-size: 13px;
+  color: #333;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* ── PENDING ROW ────────────────────────────── */
+.pending-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.zone-left {
+  font-size: 13px;
+  color: #aaa;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.inline-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.field-box.small {
+  min-width: 80px;
+  padding: 4px 12px;
+}
+
+.proof-text {
+  font-size: 13px;
+  color: #888;
+  white-space: nowrap;
+}
+
+/* ── RESPONSIVE ─────────────────────────────── */
+@media (max-width: 768px) {
+  .navcenter { display: none; }
+  .pending-row { flex-direction: column; align-items: flex-start; }
+}

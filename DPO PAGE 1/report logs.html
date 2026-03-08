@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Logs - Barangay Pembo</title>
+  <link rel="stylesheet" href="report logs.css">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navleft">
+    <img src="logo.jpg" alt="Logo" class="logo">
+    <div class="nav-brand">
+      <div class="nav-title">Barangay Pembo</div>
+      <div class="nav-sub">Data Privacy Officer</div>
+    </div>
+  </div>
+  <div class="navcenter">
+    <a href="DPO.html">Dashboard</a>
+    <a href="map view.html">Map View</a>
+    <a href="report logs.html">Report Logs</a>
+  </div>
+  <div class="navright">
+    <span class="bell">🔔</span>
+    <div class="admin-logout">
+      <div class="admin-name">Admin name</div>
+      <div class="admin-email">Administrator@gmail.com</div>
+      <a href="#" class="logout">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- ── REPORT LOGS ─────────────────────────── -->
+  <h2 class="section-title">Report Logs</h2>
+
+  <div class="log-card">
+    <!-- Top row: store name | dot + date | zone -->
+    <div class="card-top">
+      <div class="store-block">
+        <div class="store-name">Baby's Store</div>
+        <div class="store-owner">Aling Bebang</div>
+      </div>
+      <div class="date-block">
+        <span class="dot orange"></span>
+        <span class="visit-date">10/05/2025</span>
+      </div>
+      <div class="zone-block">Zone 13</div>
+    </div>
+
+    <!-- Fields row -->
+    <div class="fields-row">
+      <div class="field-group">
+        <span class="field-label">Date of visit:</span>
+        <div class="field-box">10/05/2025</div>
+      </div>
+      <div class="field-group">
+        <span class="field-label">Proof of visit:</span>
+        <a href="#" class="see-photo">See Photo*</a>
+      </div>
+    </div>
+
+    <!-- Remarks -->
+    <div class="field-group remarks-group">
+      <span class="field-label">Remarks:</span>
+      <div class="field-box">Bukas na raw magbabayad</div>
+    </div>
+  </div>
+
+  <!-- ── PENDING VISITS ──────────────────────── -->
+  <h2 class="section-title">Pending Visits</h2>
+
+  <div class="log-card pending-card">
+    <div class="pending-row">
+      <div class="zone-left">Zone 13</div>
+      <div class="store-block">
+        <div class="store-name">Aling Bebang's Store</div>
+        <div class="store-owner">Aling bebang</div>
+      </div>
+      <div class="date-block">
+        <span class="dot orange"></span>
+        <span class="visit-date">10/05/2025</span>
+      </div>
+      <div class="inline-field">
+        <span class="field-label">Date of visit:</span>
+        <div class="field-box small">Pending</div>
+      </div>
+      <div class="inline-field">
+        <span class="field-label">Remarks:</span>
+        <div class="field-box small">Pending</div>
+      </div>
+      <div class="proof-text">Proof of visit: No Photos yet</div>
+    </div>
+  </div>
+
+</div>
+
+<script src="report logs.js"></script>
+<script src="editor.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map View - Barangay Pembo</title>
+  <link rel="stylesheet" href="map view.css">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navleft">
+    <img src="logo.jpg" alt="Logo" class="logo">
+    <div class="nav-brand">
+      <div class="nav-title">Barangay Pembo</div>
+      <div class="nav-sub">Data Privacy Officer</div>
+    </div>
+  </div>
+  <div class="navcenter">
+    <a href="DPO.html">Dashboard</a>
+    <a href="map view.html">Map View</a>
+    <a href="report logs.html">Report Logs</a>
+  </div>
+  <div class="navright">
+    <span class="bell">🔔</span>
+    <div class="admin-logout">
+      <div class="admin-name">Admin name</div>
+      <div class="admin-email">Administrator@gmail.com</div>
+      <a href="#" class="logout">Logout</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page">
+  <h2 class="page-title">Barangay Pembo Business Location Map</h2>
+  <div class="page-sub">View all Registered Map</div>
+
+  <div class="layout">
+
+    <!-- LEFT: Map card -->
+    <div class="map-card">
+      <div class="map-area" id="mapArea">
+        <!-- Inline legend top-left inside map -->
+        <div class="map-legend-inline">
+          <div class="li"><span class="dot green"></span> Active</div>
+          <div class="li"><span class="dot orange"></span> Pending</div>
+          <div class="li"><span class="dot yellow"></span> Renewal</div>
+          <div class="li"><span class="dot red"></span> Expired</div>
+        </div>
+      </div>
+      <div class="map-footer">Scroll to zoom · Click on pins to select · Showing 3 businesses</div>
+    </div>
+
+    <!-- RIGHT: Search + Legend panel -->
+    <div class="side-panel">
+      <div class="search-wrap">
+        <input type="text" placeholder="Search Business Name">
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <div class="legend-card">
+        <div class="legend-title">Legend</div>
+        <div class="li"><span class="dot green"></span> Active</div>
+        <div class="li"><span class="dot orange"></span> Pending</div>
+        <div class="li"><span class="dot yellow"></span> Renewal Pending</div>
+        <div class="li"><span class="dot red"></span> Expired</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Popup (positioned by JS) -->
+<div class="popup" id="popup">
+  <div class="popup-top">
+    <span class="dot orange popup-dot"></span>
+    <button class="color-btn">Change color</button>
+  </div>
+  <div class="popup-name">Aling bebang's store</div>
+  <div class="popup-addr">Address*</div>
+  <div class="popup-link">See Photos</div>
+</div>
+
+<script src="map view.js"></script>
+<script src="editor.js"></script>
+</body>
+</html>
