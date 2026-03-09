@@ -84,9 +84,9 @@
     } else {
       sty.textContent = `
         body{background-color:${V.cPG}!important;font-family:${V.fFont}!important;font-size:${V.fSz}px!important;color:${V.cTX}!important;}
-        .navbar{background-color:${V.cNB}!important;}
-        .navbar *{color:${V.cNT}!important;}
-        .navcenter a,.logout,.logout a{color:${V.cNT}!important;}
+        .navbar,.header{background-color:${V.cNB}!important;}
+        .navbar *,.header *{color:${V.cNT}!important;}
+        .navcenter a,.header-center a,.logout,.logout a{color:${V.cNT}!important;}
         .page{background-color:${V.cPG}!important;}
         .dashboard{background-color:${V.cPG}!important;}
         .card,.info-card,.table-card,.legend,.map-card{background-color:${V.cCD}!important;border-color:${V.cBD}!important;}
@@ -435,13 +435,13 @@
       el.addEventListener('input', () => {
         const rv = $(v); if (rv) rv.textContent = el.value + 'px';
         if (k === 'edPad') {
-          $$('.page,.dashboard').forEach(e => e.style.setProperty('padding', el.value + 'px', 'important'));
+          $$('.page,.dashboard,.main-content').forEach(e => e.style.setProperty('padding', el.value + 'px', 'important'));
         }
         if (k === 'edRad') {
-          $$('.card,.info-card,.table-card,.map-card,.legend,.chart-box').forEach(e => e.style.setProperty('border-radius', el.value + 'px', 'important'));
+          $$('.card,.info-card,.table-card,.map-card,.legend,.chart-box,.visit-card,.legend-box').forEach(e => e.style.setProperty('border-radius', el.value + 'px', 'important'));
         }
         if (k === 'edNavP') {
-          $$('.navbar').forEach(e => e.style.setProperty('padding', el.value + 'px 40px', 'important'));
+          $$('.navbar,.header').forEach(e => e.style.setProperty('padding', el.value + 'px 40px', 'important'));
         }
       });
     });
