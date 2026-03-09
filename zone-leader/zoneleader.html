@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zone Leader</title>
+    <link rel="stylesheet" href="zoneleader.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+
+     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+     <link rel="stylesheet" href="editor.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="header">
+
+            <div class="header-left">
+                <img src="images/logo.png" alt="Barangay Pembo Logo" class="logo">
+                <div>
+                    <span id="name"></span>
+                    <p>Barangay Pembo</p>
+                    <p>Business Owner Portal</p>
+                </div>
+            </div>
+
+            <div class="header-center">
+                <a href="zoneleader.html">Map View</a>
+                <a href="visitlogs.html">Visit Logs</a>
+            </div>
+
+            <div class="header-right">
+                <p>Owner Name</p>
+                <span id="gmail"></span>
+                <p>Owner@gmail.com</p>
+                <a href="#" class="logout">Logout</a>
+            </div>
+
+        </header>
+
+        <main class="main-content">
+                
+            <div class="title-content">
+                <h3>Barangay Pembo Business Location Map</h3>
+                <p>View All Registered Map</p>
+                
+            </div>
+
+            <div id="map"></div>
+
+            <div class="right-panel">
+                <div class="searchbar">
+                    <input type="text" placeholder="Search Business name">
+                    <span class="material-symbols-outlined search-icon">search</span>
+                </div>
+            </div>
+
+            <div class="legend-box">
+
+    <h3>Legend</h3>
+
+    <div class="legend-item">
+        <span class="dot active"></span>
+        <span>Active</span>
+    </div>
+
+    <div class="legend-item">
+        <span class="dot pending"></span>
+        <span>Pending</span>
+    </div>
+
+    <div class="legend-item">
+        <span class="dot renewal"></span>
+        <span>Renewal Pending</span>
+    </div>
+
+    <div class="legend-item">
+        <span class="dot expired"></span>
+        <span>Expired</span>
+    </div>
+
+</div>
+
+        </main>
+
+    </div>
+    <script src="zoneleader.js"></script>
+    <script src="editor.js"></script>
+</body>
+</html>

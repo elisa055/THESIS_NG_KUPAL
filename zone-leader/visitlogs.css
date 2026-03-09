@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+}
+
+body{
+    background-color:white;
+    color:#333;
+}
+
+.container{
+    width:100%;
+    margin:0 auto;
+}
+
+
+
+.header{
+    background-color:#808080;
+    color:white;
+    padding:20px;
+    display:flex;
+    align-items:center;
+}
+
+
+.logo{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+
+.header-left{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex:1;
+}
+
+
+
+.header-center{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    flex:1;
+}
+
+.header-center a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+
+ul, li{
+    list-style: none;
+}
+
+.header-right{
+    text-align:right;
+    flex:1;
+}
+
+.logout{
+    color:white;
+    text-decoration:underline;
+    font-size:14px;
+    cursor:pointer;
+}
+
+.logout:hover{
+    opacity:0.8;
+}
+
+
+
+.main-content{
+    display:flex;
+    flex-direction:column;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-bottom: 10px;
+    gap:20px;
+}
+
+
+
+.title{
+    font-size:32px;
+    font-weight:600;
+    margin-left: 40px;
+}
+
+
+.subtitle{
+    color:#777;
+    font-size:20px;
+    margin-left: 40px;
+}
+
+
+.visit-card{
+    width:900px;
+    padding:10px;
+    border:1px solid #cfcfcf;
+    border-radius:12px;
+    margin-bottom:5px;
+    margin-left: 40px;
+}
+
+
+.card-header{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.status-dot{
+    width:15px;
+    height:15px;
+    background:#f58520;
+    border-radius:50%;
+}
+
+.visit-date{
+    color:#666;
+}
+
+
+
+.form-row{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    margin-bottom:20px;
+}
+
+.form-group{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.form-group input{
+    width:250px;
+    padding:6px;
+    border:1px solid #ccc;
+}
+
+
+
+.remarks input{
+    width:300px;
+}
+
+
+
+.done-btn{
+    margin-left:auto;
+    padding:10px 30px;
+    border:none;
+    background:#cfcfcf;
+    border-radius:10px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.done-btn:hover{
+    background:#bdbdbd;
+}
+
+
+
+.subtitle2{
+    color:#777;
+    font-size:20px;
+    margin-top:40px;
+    margin-left: 40px;
+}
+

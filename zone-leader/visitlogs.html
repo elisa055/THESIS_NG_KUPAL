@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zone Leader</title>
+    <link rel="stylesheet" href="visitlogs.css">
+    <link rel="stylesheet" href="editor.css">
+    
+</head>
+
+<body>
+    <div class="container">
+
+        <header class="header">
+
+            <div class="header-left">
+                <img src="images/logo.png" alt="Barangay Pembo Logo" class="logo">
+                <div>
+                    <span id="name"></span>
+                    <p>Barangay Pembo</p>
+                    <p>Business Owner Portal</p>
+                </div>
+            </div>
+
+            <div class="header-center">
+                <a href="zoneleader.html">Map View</a>
+                <a href="visitlogs.html">Visit Logs</a>
+            </div>
+
+            <div class="header-right">
+                <p>Owner Name</p>
+                <span id="gmail"></span>
+                <p>Owner@gmail.com</p>
+                <a href="#" class="logout">Logout</a>
+            </div>
+
+        </header>
+    </div>
+        <main class="main-content">
+                
+                <h1 class="title">Visit Logs</h1>
+                <p class="subtitle">Need to visit</p>
+
+            <div class="visit-card">
+
+                <div class="card-header">
+                    <h3>Aling Bebang's Store</h3>
+                    <span class="status-dot"></span>
+                    <span class="visit-date">10/05/2025</span>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Date of visit:</label>
+                        <input type="date">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Proof of visit:</label>
+                        <input type="file">
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group remarks">
+                        <label>Remarks:</label>
+                        <input type="text">
+                    </div>
+
+                    <button class="done-btn">DONE</button>
+
+                </div>
+
+            </div>
+
+            
+            <p class="subtitle2">Visited</p>
+             
+            <div class="visit-card">
+
+                <div class="card-header">
+                    <h3>Baby's Store</h3>
+                    <span class="status-dot"></span>
+                    <span class="visit-date">10/05/2025</span>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Date of visit:</label>
+                        <input type="text" value="10/05/2025" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Proof of visit:</label>
+                        <a href="#">See Photo*</a>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group remarks">
+                        <label>Remarks:</label>
+                        <input type="text" value="Bukas na raw magbabayad" readonly>
+                    </div>
+
+                </div>
+
+            </div>
+
+          </main>
+        </div>
+
+        <script src="editor.js"></script>        
+    </body>
+</html>
