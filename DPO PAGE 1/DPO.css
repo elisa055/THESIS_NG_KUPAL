@@ -1,327 +1,284 @@
-/* =============================================
-   DPO.css — Data Privacy Officer Dashboard
-   ============================================= */
-
-*, *::before, *::after {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
 }
 
-body {
-  width: 100%;
-  min-height: 100vh;
-  background: #f5f5f5;
-}
-
-/* ── NAVBAR ─────────────────────────────────── */
 .navbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background: #9e9e9e;
-  padding: 12px clamp(20px, 5vw, 60px);
+  align-items: center;
+  background: #8f8f8f;
+  color: white;
+  padding: clamp(12px,2vw,20px) clamp(20px,6vw,80px);
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
 }
 
-.navleft {
+.navleft, .navcenter {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: clamp(14px,3vw,40px);
 }
-.navright{
+
+.navright {
   text-align: right;
 }
 
 .logo {
-  width: 46px;
-  height: 46px;
-  object-fit: cover;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: #ccc;
-}
-
-.nav-brand .title {
-  font-weight: 700;
-  color: white;
-  font-size: 16px;
-  line-height: 1.3;
-}
-
-.nav-brand .subtitle {
+  background: #cfcfcf;
+  display: grid;
+  place-items: center;
   font-size: 12px;
-  color: #eee;
+  color: #666;
 }
 
-.navcenter {
-  display: flex;
-  gap: 32px;
-}
-
-.navcenter a {
+.navcenter a, .navright a {
   color: white;
   text-decoration: underline;
+}
+
+.page {
+  background: #efefef;
+  min-height: 100vh;
+  padding: clamp(24px,5vw,60px);
+}
+
+.back {
+  color: #777;
+  margin-bottom: 30px;
   font-size: 14px;
-}
-
-.navright {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.bell { font-size: 18px; color: white; cursor: pointer; }
-
-/* Admin name/email stacked ABOVE logout */
-.admin-logout {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 2px;
-}
-
-.admin-info .admin-name {
-  font-weight: 700;
-  color: white;
-  font-size: 15px;
-  text-align: right;
-}
-
-.admin-info .admin-email {
-  font-size: 12px;
-  color: #eee;
-  text-align: right;
-}
-
-.logout {
-  color: white;
-  text-decoration: underline;
-  font-size: 13px;
   cursor: pointer;
 }
 
-/* ── DASHBOARD ──────────────────────────────── */
-.dashboard {
-  padding: clamp(24px, 4vw, 50px) clamp(20px, 5vw, 60px);
-  min-height: calc(100vh - 70px);
-}
-
-/* ── TOP: chart + types ─────────────────────── */
-.top-section {
-  display: flex;
-  align-items: center;
-  gap: clamp(32px, 6vw, 80px);
-  flex-wrap: wrap;
+.status-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
   margin-bottom: 40px;
 }
 
-.chart-box {
-  flex-shrink: 0;
-  width: clamp(180px, 28vw, 300px);
-  height: clamp(180px, 28vw, 300px);
-  background: #d9d9d9;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 10px;
+.card {
+  background: #e5e5e5;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-.chart-box canvas { width: 100% !important; height: 100% !important; }
-
-.types-box { flex: 1; min-width: 260px; }
-
-.types-box h2 {
-  font-size: clamp(20px, 2.2vw, 26px);
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 16px;
-}
-
-.types-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-}
-
-.type-list, .status-list {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  align-self: start;
+.label {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 20px;
 }
 
 .pill {
-  background: #ebebeb;
-  border: 1px solid #d5d5d5;
-  padding: 7px 16px;
-  border-radius: 20px;
-  font-size: 13px;
-  color: #444;
-  width: 100%;
-}
-
-.pill.count {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.pill.count .badge {
-  background: #c5c5c5;
-  border-radius: 12px;
-  padding: 1px 10px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #333;
-  min-width: 26px;
-  text-align: center;
-}
-
-/* ── FILTER ROW ─────────────────────────────── */
-.filter-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 16px;
-}
-
-.tabs {
-  background: #d5d5d5;
-  padding: 4px;
-  border-radius: 8px;
-  display: flex;
-  gap: 2px;
-}
-
-.tab {
-  border: none;
-  padding: 8px 14px;
-  background: transparent;
-  cursor: pointer;
+  width: 70px;
+  height: 18px;
   border-radius: 6px;
-  font-size: 13px;
-  color: #444;
-  transition: background .15s;
 }
 
-.tab:hover { background: rgba(0,0,0,.07); }
-.tab.active { background: #bdbdbd; font-weight: 600; color: #222; }
+.gray { background: #c9c9c9; }
 
-.search-wrap {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-bottom: 1px solid #aaa;
-  padding-bottom: 4px;
-}
-
-.search-wrap input {
-  border: none;
-  background: transparent;
-  outline: none;
-  font-size: 14px;
-  color: #555;
-  width: 200px;
-}
-
-.search-wrap input::placeholder { color: #bbb; }
-.search-icon { color: #888; font-size: 16px; cursor: pointer; }
-
-/* ── TABLE CARD ─────────────────────────────── */
-.table-card {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* Each business = its own white rounded card */
-.biz-row {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
-  padding: 16px 20px 14px;
-  border: 1px solid #e8e8e8;
-}
-
-/* Top line: Owner info left, status pills right */
-.biz-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 16px;
-  gap: 12px;
-}
-
-.owner-col .owner-name {
-  font-size: 13px;
-  color: #999;
-  margin-bottom: 3px;
-}
-
-.owner-col .owner-id {
-  font-size: 13px;
-  color: #555;
-}
-
-.status-pills {
-  display: flex;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.status-pill {
-  background: #c0c0c0;
-  border: none;
-  border-radius: 6px;
-  padding: 6px 20px;
-  font-size: 13px;
-  color: #fff;
-  font-weight: 600;
-}
-
-/* Middle line: Type / Zone / Registered / Renewal */
-.biz-meta {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #eeeeee;
-  margin-bottom: 14px;
-}
-
-.meta-col {
-  font-size: 13px;
+.date {
+  font-size: 22px;
+  font-weight: bold;
   color: #777;
 }
 
-/* Full-width View Details button */
-.view-details-btn {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background: #fff;
-  border: 1px solid #d0d0d0;
-  border-radius: 6px;
-  font-size: 14px;
-  color: #444;
-  cursor: pointer;
-  text-align: center;
-  transition: background .15s;
-  text-decoration: underline;
+.info-card {
+  background: #e5e5e5;
+  border-radius: 14px;
+  padding: clamp(20px,4vw,40px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  position: relative;
 }
 
-.view-details-btn:hover { background: #f7f7f7; }
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
 
-/* ── RESPONSIVE ─────────────────────────────── */
-@media (max-width: 768px) {
-  .types-grid { grid-template-columns: 1fr; }
-  .navcenter { display: none; }
-  .biz-meta { grid-template-columns: repeat(2, 1fr); }
+.field {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #c9c9c9;
+  margin: 20px 0;
+}
+
+.financial-title {
+  color: #777;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.edit-btn {
+  position: absolute;
+  right: clamp(16px, 3vw, 30px);
+  bottom: clamp(16px, 3vw, 24px);
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #999;
+  background: #d5d5d5;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.edit-btn:hover { background: #c5c5c5; }
+
+@media (max-width: 600px) {
+  .edit-btn {
+    position: static;
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
+/* ── MODAL OVERLAY ──────────────────────────── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+/* ── MODAL BOX ──────────────────────────────── */
+.modal {
+  background: #f2f2f2;
+  border-radius: 14px;
+  width: min(700px, 94vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.22);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── MODAL HEADER ───────────────────────────── */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 22px 28px 14px;
+  border-bottom: 1px solid #ddd;
+  flex-shrink: 0;
+}
+
+.modal-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 3px;
+}
+
+.modal-sub {
+  font-size: 12px;
+  color: #888;
+}
+
+.modal-back {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.modal-back:hover { color: #222; }
+
+/* ── MODAL BODY ─────────────────────────────── */
+.modal-body {
+  padding: 20px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #333;
+  margin-top: 14px;
+  margin-bottom: 10px;
+}
+
+/* ── MODAL ROWS ─────────────────────────────── */
+.modal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.modal-row.single {
+  grid-template-columns: 1fr 1fr;
+}
+
+.modal-row.full {
+  grid-template-columns: 1fr;
+}
+
+/* ── MODAL FIELDS ───────────────────────────── */
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.modal-field label {
+  font-size: 12px;
+  color: #555;
+}
+
+.modal-field input,
+.modal-field select {
+  padding: 8px 12px;
+  border: 1px solid #d5d5d5;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  color: #333;
+  outline: none;
+  width: 100%;
+  transition: border-color .2s;
+}
+
+.modal-field input:focus,
+.modal-field select:focus {
+  border-color: #aaa;
+}
+
+.modal-field select {
+  appearance: auto;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .modal-row,
+  .modal-row.single {
+    grid-template-columns: 1fr;
+  }
+  .modal-header { padding: 16px 18px 12px; }
+  .modal-body   { padding: 16px 18px 22px; }
 }
