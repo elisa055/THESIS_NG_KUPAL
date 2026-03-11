@@ -84,6 +84,125 @@
   </div>
 </div>
 
+<!-- ── EDIT MODAL OVERLAY ───────────────────── -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">Edit Business Information</div>
+        <div class="modal-sub">Update business details and payment information</div>
+      </div>
+      <button class="modal-back" id="modalClose">Back</button>
+    </div>
+
+    <div class="modal-body">
+
+      <!-- Business Information -->
+      <div class="modal-section-title">Business Information</div>
+
+      <div class="modal-row">
+        <div class="modal-field">
+          <label>Business Name</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="modal-field">
+          <label>Owner Name</label>
+          <input type="text" placeholder="">
+        </div>
+      </div>
+
+      <div class="modal-row single">
+        <div class="modal-field">
+          <label>Business Type</label>
+          <select>
+            <option value=""></option>
+            <option>Retail</option>
+            <option>Trading and general merchandise</option>
+            <option>Builder/Construction</option>
+            <option>Rental Services/lessor</option>
+            <option>Medical/Dental/Diagnostics/Clinics</option>
+            <option>Banks</option>
+            <option>Other Services</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal-row full">
+        <div class="modal-field">
+          <label>Address</label>
+          <input type="text" placeholder="">
+        </div>
+      </div>
+
+      <div class="modal-row full">
+        <div class="modal-field">
+          <label>Owner Gmail</label>
+          <input type="email" placeholder="">
+        </div>
+      </div>
+
+      <!-- Financial Information -->
+      <div class="modal-section-title">Financial Information</div>
+
+      <div class="modal-row">
+        <div class="modal-field">
+          <label>Capitalization (income)</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="modal-field">
+          <label>Capitalization (income)</label>
+          <input type="text" placeholder="">
+        </div>
+      </div>
+
+      <div class="modal-row">
+        <div class="modal-field">
+          <label>Years In Operation</label>
+          <input type="text" placeholder="">
+        </div>
+        <div class="modal-field">
+          <label>Amount Paid (Prior Year)</label>
+          <input type="text" placeholder="">
+        </div>
+      </div>
+
+      <!-- Status Information -->
+      <div class="modal-section-title">Status Information</div>
+
+      <div class="modal-row">
+        <div class="modal-field">
+          <label>Business Status</label>
+          <select>
+            <option value=""></option>
+            <option>Active</option>
+            <option>Pending</option>
+            <option>Renewal Pending</option>
+            <option>Expired</option>
+          </select>
+        </div>
+        <div class="modal-field">
+          <label>Payment Status</label>
+          <select>
+            <option value=""></option>
+            <option>Paid</option>
+            <option>Pending</option>
+            <option>Overdue</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="modal-row single">
+        <div class="modal-field">
+          <label>Renewal Date</label>
+          <input type="text" placeholder="">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <script src="dashboard.js"></script>
 <script src="editor.js"></script>
 </body>
