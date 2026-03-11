@@ -1,6 +1,5 @@
 /* =============================================
-   editor.css — Shared Page Editor
-   Works on ALL pages. Cyberpunk dark aesthetic.
+   Editor.css — Page Editor UI styles
    ============================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -8,20 +7,16 @@
 :root {
   --ed-bg:      #0d0d14;
   --ed-surf:    #13131f;
-  --ed-surf2:   #1a1a2e;
   --ed-bdr:     #2a2a45;
   --ed-bdr2:    #3a3a5a;
   --ed-txt:     #e8e8f8;
   --ed-muted:   #6060a0;
   --ed-accent:  #7c3aed;
   --ed-accent2: #06b6d4;
-  --ed-green:   #10b981;
-  --ed-red:     #ef4444;
   --ed-glow:    0 0 20px rgba(124,58,237,0.4);
-  --ed-glow2:   0 0 12px rgba(6,182,212,0.3);
 }
 
-/* ── FAB BUTTON ─────────────────────────────── */
+/* ── FAB ──────────────────────────────────────── */
 #ed-fab {
   position: fixed !important;
   bottom: 28px !important;
@@ -43,6 +38,9 @@
   padding: 0 !important;
   line-height: 1 !important;
   animation: ed-fab-pulse 3s ease-in-out infinite !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
 }
 #ed-fab:hover {
   transform: scale(1.12) rotate(30deg) !important;
@@ -54,12 +52,12 @@
   50%      { box-shadow: 0 0 0 2px #0d0d14, 0 0 0 4px #7c3aed, 0 0 35px rgba(124,58,237,0.7); }
 }
 
-/* ── SIDEBAR ─────────────────────────────────── */
+/* ── SIDEBAR ──────────────────────────────────── */
 #ed-sb {
   position: fixed;
   top: 14px;
   right: 14px;
-  width: 288px;
+  width: 272px;
   background: var(--ed-bg);
   border: 1px solid var(--ed-bdr);
   border-radius: 16px;
@@ -79,24 +77,20 @@
   visibility: hidden;
   pointer-events: none;
 }
-/* scan-line texture */
 #ed-sb::before {
   content: '';
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(255,255,255,.012) 2px,
-    rgba(255,255,255,.012) 4px
+    0deg, transparent, transparent 2px,
+    rgba(255,255,255,.012) 2px, rgba(255,255,255,.012) 4px
   );
   pointer-events: none;
   border-radius: 16px;
   z-index: 0;
 }
 
-/* ── DRAG HANDLE ─────────────────────────────── */
+/* ── DRAG HANDLE ──────────────────────────────── */
 #sbDrag {
   display: flex;
   align-items: center;
@@ -129,22 +123,11 @@
   background: linear-gradient(135deg, #7c3aed, #06b6d4);
   box-shadow: 0 0 8px rgba(124,58,237,0.8);
   animation: ed-dot-blink 2s ease-in-out infinite;
+  flex-shrink: 0;
 }
 @keyframes ed-dot-blink {
   0%,100% { opacity: 1; }
   50%      { opacity: .3; }
-}
-.sb-page-badge {
-  font-size: 9px;
-  font-weight: 600;
-  color: var(--ed-accent2);
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  background: rgba(6,182,212,.12);
-  border: 1px solid rgba(6,182,212,.25);
-  border-radius: 4px;
-  padding: 2px 6px;
-  margin-left: 4px;
 }
 #bClose {
   background: rgba(239,68,68,.15);
@@ -179,7 +162,7 @@
   border: none;
   border-bottom: 2px solid transparent;
   color: var(--ed-muted);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -255,7 +238,7 @@
   opacity: .8;
 }
 
-/* ── PRESETS ─────────────────────────────────── */
+/* ── PRESETS ──────────────────────────────────── */
 .pts { display: flex; gap: 7px; flex-wrap: wrap; }
 .pt {
   width: 30px;
@@ -268,7 +251,7 @@
 }
 .pt:hover { transform: scale(1.18); border-color: #fff; box-shadow: 0 0 12px rgba(255,255,255,.3); }
 
-/* ── INPUTS & SELECTS ─────────────────────────── */
+/* ── SELECTS & INPUTS ─────────────────────────── */
 .sc {
   width: 100%;
   padding: 8px 10px;
@@ -303,7 +286,7 @@ select.sc { cursor: pointer; }
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* ── TOAST ───────────────────────────────────── */
+/* ── TOAST ────────────────────────────────────── */
 #ed-toast {
   position: fixed;
   bottom: 96px;
@@ -324,4 +307,3 @@ select.sc { cursor: pointer; }
   letter-spacing: .5px;
 }
 #ed-toast.on { transform: translateX(-50%) translateY(0); }
-#ed-toast.err { background: linear-gradient(90deg, #ef4444, #f97316); }
